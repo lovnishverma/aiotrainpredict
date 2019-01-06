@@ -1,17 +1,15 @@
-Welkom bij de cursus Python apps met Flask
-==============================================
+Cursus Python apps met Flask: statische website
+===============================================
 
-Klik `"Show"` bovenin om de app "live" te bekijken.
-Aanpassingen in je code worden direct verwerkt:
-je ziet dit direct in de app.
+In dit voorbeeld maken we een statische website:
+de webserver levert de bestanden op die in de `public` map staan,
+waarbij de URL overeenkomt met het pad van het bestand.
+Dit kunnen html, css en javascript-bestanden zijn.
 
-Glitch (zie [Over Glitch](https://glitch.com/about)) is een omgeving ("zandbak", "speeltuin") voor ontwikkelaars waarin je een echte web-app kunt maken met direct resultaat.
+**Opdrachten**
 
-We gaan ervan uit dat je de volgende voorkennis hebt:
-
-- enige kennis van programmeren en van Python
-- kennis van html, css en javascript ("front end")
-- enige kennis van databases (SQL)
+1. Pas het html-bestand `index.html` aan, en controleer dit met de live app.
+2. Voeg een html-bestand `about.html` toe, en controleer dit met de live app.
 
 Over dit voorbeeld
 ------------------
@@ -28,18 +26,22 @@ We gaan ervan uit dat je enige kennis van programmeren en van Python hebt.
 
 In dit voorbeeld demonstreert twee aspecten van Flask:
 
-1. de minimale *boiler plate*: de import-statements,
+1. de *app-structuur*
 2. de *routering*
 
-Voor een Flask-app heb je het Flask-framework nodig.
-Hiermee maak je een `app`-object voor de applicatie:
+De app-structuur is in dit geval iets uitgebreider:
+we geven aan `Flask` de naam van de map met de statische bestanden mee.
 
 ```Python
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask(__name__, ...)
+...
+if __name__ == '__main__':
+    app.run()
 ```
 
+**Routering** 
 Een URL `/naam` van de app worden verwerkt door een functie van de vorm:
 
 ```Python
@@ -64,8 +66,10 @@ zodat deze functie aangeroepen wordt als we een *request* voor `url` krijgen.
 
 **Opdrachten**
 
-1. Verander de tekst die de functie `hello` oplevert, en controleer het resultaat in de "live" app.
-2. 
+1. Verander (in `server.py`) de tekst die de functie `hello` oplevert, 
+   en controleer het resultaat in de "live" app.
+2. Voeg een tweede functie toe, op dezelfde manier als `hello`, voor de url `/hi`. 
+   Test deze via de live app.
 
 Over de Glitch omgeving
 -----------------------

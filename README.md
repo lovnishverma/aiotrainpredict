@@ -48,8 +48,14 @@ De naam van de functie mag je vrij kiezen;
 vaak gebruiken we daarvoor de naam in de URL.
 Als `methods=['GET']`, kun je dit weglaten (*default*)
 
-De Python-constructie `@app.route(...) def naam(...) ...` heet een *decorator*.
+De Python-constructie `@app.route(url) def naam(...) ...` heet een *decorator* voor de functie `naam`.
+In andere talen gebruik je hier vaak de constructie:
 
+```
+route(url, function naam (...) {...})
+```
+In beide gevallen betekent dit: bind de functie `naam` aan de url `url`,
+zodat deze functie aangeroepen wordt als we een *request* voor `url` krijgen.
 
 
 Over de Glitch omgeving

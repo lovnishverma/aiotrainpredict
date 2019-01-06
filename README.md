@@ -1,18 +1,18 @@
-Cursus Python apps met Flask: templates(1)
+Cursus Python apps met Flask: templates(2)
 ==========================================
 
-Bij een dynamische website past de server de webpagina's aan op grond van de toestand van de server.
-Voor deze toestand gebruik je meestal een database:
-daar gaan we later verder op in.
+In dit voorbeeld geven we een aantal voorbeelden van templates.
+We behandelen keuze (if) en herhaling in templates.
 
-De waarden die je uit de toestand krijgt, moet je verwerken in de webpagina (html-code).
-Hiervoor gebruik je *templates*.
+(... en de interactie tussen templates en JavaScript? ...)
 
-In dit eenvoudige voorbeeld hangt de webpagina af van een *omgevings-variabele*:
-in het template vullen we voor `naam`de waarde van `os.environment("MADE_BY")` in.
 
-Over templates
---------------
+Over templates(2)
+-----------------
+
+De template-opdracht 
+
+
 
 Een *template* (sjabloon) is een tekst (string) waarin elementen opengelaten zijn om deze later in te vullen.
 Het invullen van deze opengelaten elementen noemen we *rendering*.

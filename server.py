@@ -11,13 +11,12 @@ conn = sqlite3.connect('example.db')
 c = conn.cursor()
 
 def table_exists (name):
-  nm = c.execute('''SELECT name FROM sqlite_master 
-                    WHERE type='table' AND name='{table_name}';''')
-  print("result" + str(nm))
+  conn = sqlite3.connect('example.db')
+  c = conn.cursor()
+  cnt = c.execute('''SELECT COUNT(*) FROM sqlite_master 
+                    WHERE type='table' AND name='{}';'''.format(name) )
+  print("result" + str(cnt))
   
-table_exists("stocks")
-table_exists("todos")
-
 # Create table
 
 c.execute('''CREATE TABLE IF NOT EXISTS stocks
@@ -36,8 +35,9 @@ conn.close()
 
 @app.route('/')
 def home():
-    
-    
+    print("home")
+    table_exists("stocks")
+    table_exists("todos")
     return render_template('app.html', maker=os.environ.get("MADE_BY"))
 
 if __name__ == '__main__':

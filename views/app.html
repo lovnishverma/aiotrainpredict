@@ -14,6 +14,13 @@
     <div>
       <button id="myButton">Klik hier</button>
     </div>
+    <div>
+      <ul>
+        {% for todo in todos %}
+         <li> {{ todo.id }} - {{ todo.todo }} </li>
+        {% endfor %}
+      </ul>
+    </div>
     <script src="/public/demo.js"></script>
   </body>
 </html>

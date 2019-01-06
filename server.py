@@ -41,10 +41,14 @@ def home():
     
     c.execute('''SELECT rowid, todo FROM todos''')
     res = c.fetchall()
-    
+    print("result: " + str(res))
+    todos = []
+    for todo in res:
+      todos.append({"id": todo[0], "todo": todo[1]})
+    print(str(todos))              
     conn.commit()
     conn.close()
-    return render_template('app.html', maker=os.environ.get("MADE_BY"))
+    return render_template('app.html', maker=os.environ.get("MADE_BY"), todos=todos)
 
 if __name__ == '__main__':
     app.run()

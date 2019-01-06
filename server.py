@@ -10,7 +10,16 @@ app = Flask(__name__, static_folder='public', template_folder='views')
 conn = sqlite3.connect('example.db')
 c = conn.cursor()
 
+def table_exists (name):
+  nm = c.execute('''SELECT name FROM sqlite_master 
+                    WHERE type='table' AND name='{table_name}';''')
+  print("result" + str(nm))
+  
+table_exists("stocks")
+table_exists("todos")
+
 # Create table
+
 c.execute('''CREATE TABLE IF NOT EXISTS stocks
              (date text, trans text, symbol text, qty real, price real)''')
 
@@ -25,9 +34,11 @@ conn.commit()
 conn.close()
 
 
-#@app.route('/')
-#def home():
-#    return render_template('app.html', maker=os.environ.get("MADE_BY"))
+@app.route('/')
+def home():
+    
+    
+    return render_template('app.html', maker=os.environ.get("MADE_BY"))
 
-#if __name__ == '__main__':
-#    app.run()
+if __name__ == '__main__':
+    app.run()

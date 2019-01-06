@@ -27,7 +27,13 @@ In dit voorbeeld demonstreert twee aspecten van Flask:
 1. de *boiler plate*: de import-statements,
 2. de *routering*
 
-Voor elke URL 
+Een URL `/naam` van de app worden verwerkt door een functie van de vorm:
+
+```Python
+@app.route('/naam')
+def handle_naam():
+    return ...
+```
 
 
 

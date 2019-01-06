@@ -18,12 +18,13 @@ Een *template* (sjabloon) is een tekst (string) waarin elementen opengelaten zij
 Het invullen van deze opengelaten elementen noemen we *rendering*.
 
 De opengelaten elementen noteren we in de *template-taal* die bij deze rendering gebruikt wordt.
-De template-taal van Flask is Ninja-2.
-Meer informatie daarover vind je XXX
+De template-taal van Flask is [Jinja-2](http://jinja.pocoo.org).
 
 In het template geef je dit element aan met `{{naam}}`.
 
-
+Templates kunnen in allerlei situaties handig zijn:
+Jinja-2 en andere rendering-talen zijn niet gekoppeld aan html of webservers.
+Maar voor een webserver gebruik je wel bijna 
 Voor de notatie van de opengelaten elementen
 
 

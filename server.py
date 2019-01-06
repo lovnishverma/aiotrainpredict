@@ -37,9 +37,13 @@ def home():
       c.execute('''INSERT INTO todos VALUES ("Boodschappen");''')
       c.execute('''INSERT INTO todos VALUES ("Geld halen");''')
       c.execute('''INSERT INTO todos VALUES ("Boek lezen");''')
-      conn.commit()
-      conn.close()
-      
+
+    
+    c.execute('''SELECT rowid, todo FROM todos''')
+    res = c.fetchall()
+    
+    conn.commit()
+    conn.close()
     return render_template('app.html', maker=os.environ.get("MADE_BY"))
 
 if __name__ == '__main__':

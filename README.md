@@ -25,7 +25,8 @@ Enkele bijzondere eigenschappen
 -------------------------------
 
 * elke tabel in SQLite heeft een impliciete key `rowid` (64-bits integer).
-* je kunt deze opvragen, en eventueel ook expliciet zetten (bij insert e.d.) - 
+* je kunt deze opvragen, en eventueel ook expliciet zetten (bij insert e.d.);
+* maar bij `SELECT *` krijg je deze niet te zien.
 
 De volgende stappen
 -------------------

@@ -24,8 +24,17 @@ We gaan ervan uit dat je enige kennis van programmeren en van Python hebt.
 
 In dit voorbeeld demonstreert twee aspecten van Flask:
 
-1. de *boiler plate*: de import-statements,
+1. de minimale *boiler plate*: de import-statements,
 2. de *routering*
+
+Voor een Flask-app heb je het Flask-framework nodig.
+Hiermee maak je een `app`-object voor de applicatie:
+
+```Python
+from flask import Flask
+
+app = Flask(__name__)
+```
 
 Een URL `/naam` van de app worden verwerkt door een functie van de vorm:
 
@@ -38,6 +47,9 @@ def naam():
 De naam van de functie mag je vrij kiezen; 
 vaak gebruiken we daarvoor de naam in de URL.
 Als `methods=['GET']`, kun je dit weglaten (*default*)
+
+De Python-constructie `@app.route(...) def naam(...) ...` heet een *decorator*.
+
 
 
 Over de Glitch omgeving

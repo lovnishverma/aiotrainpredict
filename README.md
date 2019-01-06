@@ -30,11 +30,14 @@ In dit voorbeeld demonstreert twee aspecten van Flask:
 Een URL `/naam` van de app worden verwerkt door een functie van de vorm:
 
 ```Python
-@app.route('/naam')
-def handle_naam():
+@app.route('/naam', methods=['GET', 'POST'])
+def naam():
     return ...
 ```
 
+De naam van de functie mag je vrij kiezen; 
+vaak gebruiken we daarvoor de naam in de URL.
+Als `methods=['GET']`, kun je dit weglaten (*default*)
 
 
 Over de Glitch omgeving

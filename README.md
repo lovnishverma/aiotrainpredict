@@ -4,7 +4,7 @@ Cursus Python apps met Flask: templates
 Bij een dynamische website past de server de inhoud van de webpagina's aan op grond van de toestand van de server.
 Een uitgebreide toestand houd je meestal bij in een database.
 
-
+In dit eenvod
 
 In dit voorbeeld maken we een statische website:
 de webserver levert de bestanden op die in de `public` map staan,
@@ -65,6 +65,11 @@ zodat deze functie aangeroepen wordt als we een *request* voor `url` krijgen.
 kan het zijn dat dit ligt aan de browser: de Glitch-server levert altijd de nieuwste versie.
 
 - in Safari: Ontwikkel/Leeg caches (Alt-Cmd-E)
+
+Aan de serverkant kan er ook sprake zijn van een oudere versie,
+als je één van de statische bestanden aanpast.
+In dat geval helpt een "kleine aanpassing" van `server.py`,
+bijvoorbeeld het toevoegen en verwijderen van een spatie.
 
 Over de Glitch omgeving
 -----------------------

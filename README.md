@@ -2,7 +2,9 @@ Cursus Python apps met Flask: templates
 =======================================
 
 Bij een dynamische website past de server de inhoud van de webpagina's aan op grond van de toestand van de server.
-Een uitgebreide toestand houd je meestal bij in een database.
+Een uitgebreide toestand houd je meestal bij in een database:
+daar gaan we later verder op in.
+
 De waarden die je uit de toestand krijgt, moet je verwerken in de webpagina (html-code).
 Hierbij maak je meestal gebruik van *templates*.
 
@@ -19,12 +21,18 @@ De opengelaten elementen noteren we in de *template-taal* die bij deze rendering
 De template-taal van Flask is Ninja-2.
 Meer informatie daarover vind je XXX
 
+In het template geef je dit element aan met `{{naam}}`.
+
+
 Voor de notatie van de opengelaten elementen
 
 
 **Opdrachten**
 
-1. voeg aan de functie `hello` 
+1. voeg aan de functie `hello` een opdracht toe om de waarde van
+   `os.environ.get("MADE_BY")` af te drukken.
+   Het resultaat van een print-opdracht vind je terug in de Log:
+   deze krijg je te zien door te klikken op "Logs" in de linker-zijbalk.
 
 Over dit voorbeeld
 ------------------

@@ -1,9 +1,5 @@
-function button_handler() {
-  alert("Hello, World");
-}
-
 var button = document.getElementById("myButton");
 
-button.onclick(button_handler);
-
-
+button.onclick = function () {
+  alert("Hello, World");
+}

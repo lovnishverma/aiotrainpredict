@@ -1,4 +1,4 @@
-Welkom bij de cursus Python websites met Flask
+Welkom bij de cursus Python apps met Flask
 ==============================================
 
 Klik `"Show"` bovenin om de app "live" te bekijken.

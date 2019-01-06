@@ -14,36 +14,13 @@ app.secret = os.environ.get('SECRET')
 DREAMS = ['Python. Python, everywhere.']
 
 
-@app.after_request
-def apply_kr_hello(response):
-    """Adds some headers to all responses."""
-  
-    # Made by Kenneth Reitz. 
-    if 'MADE_BY' in os.environ:
-        response.headers["X-Was-Here"] = os.environ.get('MADE_BY')
-    
-    # Powered by Flask. 
-    response.headers["X-Powered-By"] = os.environ.get('POWERED_BY')
-    return response
+from flask import Flask
 
+app = Flask(__name__)
 
 @app.route('/')
-def homepage():
-    """Displays the homepage."""
-    return render_template('index.html')
-    
-@app.route('/dreams', methods=['GET', 'POST'])
-def dreams():
-    """Simple API endpoint for dreams. 
-    In memory, ephemeral, like real dreams.
-    """
-  
-    # Add a dream to the in-memory database, if given. 
-    if 'dreams' in request.args:
-        DREAMS.append(request.args['dreams'])
-    
-    # Return the list of remembered dreams. 
-    return jsonify(DREAMS)
+def hello():
+    return 'Hello, World!'
 
 if __name__ == '__main__':
     app.run()

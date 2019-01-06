@@ -20,20 +20,25 @@ Het invullen van deze opengelaten elementen noemen we *rendering*.
 De opengelaten elementen noteren we in de *template-taal* die bij deze rendering gebruikt wordt.
 De template-taal van Flask is [Jinja-2](http://jinja.pocoo.org).
 
-In het template geef je een opengelaten element (variabele) aan met `{{naam}}`.
+In het template geef je een opengelaten element (variabele) aan met `{{ maker }}`:
+een naam tussen `{{ }}`-haken.
 
 ```html
-    <h1>Welkom bij {{ name }}'s app</h1>
+    <h1>Welkom bij {{ maker }}'s app</h1>
 ```
 
 Bij de rendering geeft je dan een stringwaarde om in te vullen voor deze variabele: 
 
 ```python
-   render_template("app.html", naam="Hans")
+   render_template("app.html", maker="Hans")
 ```
 
+Naast deze eenvoudige template-variabelen zijn er nog meer constructies,
+die we in het geval van Jinja-2 aangeven met `{% %}`-haken.
+In volgende voorbeelden geven we daarvan meer voorbeelden.
+
 Templates zijn in veel situaties handig.
-Jinja-2 en andere template-talen zijn niet gekoppeld aan html of webservers.
+Jinja-2 en andere template-talen kun je ook in andere toepassingen dan webservers of html goed gebruiken.
 Maar voor een webserver gebruik je wel bijna altijd een template-taal.
 (PHP is van oorsprong een template-taal die uitgegroeid is tot een complete programmeertaal.)
 
@@ -46,6 +51,7 @@ Maar voor een webserver gebruik je wel bijna altijd een template-taal.
    `os.environ.get("MADE_BY")` af te drukken.
    Het resultaat van een print-opdracht vind je terug in de Log:
    deze krijg je te zien door te klikken op "Logs" in de linker-zijbalk.
+2. 
 
 Over dit voorbeeld
 ------------------

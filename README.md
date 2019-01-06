@@ -5,9 +5,13 @@ Klik `"Show"` bovenin om de app "live" te bekijken.
 Aanpassingen in je code worden direct verwerkt:
 je ziet dit direct in de app.
 
-Glitch is een omgeving ("zandbak", "speeltuin") voor ontwikkelaars waarin je een echte web-app kunt maken met direct resultaat.
+Glitch (zie [Over Glitch](https://glitch.com/about)) is een omgeving ("zandbak", "speeltuin") voor ontwikkelaars waarin je een echte web-app kunt maken met direct resultaat.
 
-[Over Glitch](https://glitch.com/about)
+We gaan ervan uit dat je de volgende voorkennis hebt:
+
+- enige kennis van programmeren en van Python
+- kennis van html, css en javascript ("front end")
+- enige kennis van databases (SQL)
 
 Over dit voorbeeld
 ------------------
@@ -58,6 +62,11 @@ In beide gevallen betekent dit: bind de functie `naam` aan de url `url`,
 zodat deze functie aangeroepen wordt als we een *request* voor `url` krijgen.
 
 
+**Opdrachten**
+
+1. Verander de tekst die de functie `hello` oplevert, en controleer het resultaat in de "live" app.
+2. 
+
 Over de Glitch omgeving
 -----------------------
 
@@ -65,3 +74,12 @@ Over de Glitch omgeving
 - `.env` - map waarin je niet-publieke gegevens ("secrets") van de app kunt opslaan. Dit is een shell-bestand waarin je environment-variabelen kunt zetten die je in je Python-programma's kunt gebruiken.
 - in de map `assets` kun je plaatjes, muziek e.d. voor de app plaatsen.
 
+De volgende stappen
+-------------------
+
+* statische files
+* templates
+* gebruik van een database (SQLite)
+* sessies
+* app-factory
+* headers

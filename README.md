@@ -3,15 +3,28 @@ Cursus Python apps met Flask: templates
 
 Bij een dynamische website past de server de inhoud van de webpagina's aan op grond van de toestand van de server.
 Een uitgebreide toestand houd je meestal bij in een database.
+De waarden die je uit de toestand krijgt, moet je verwerken in de webpagina (html-code).
+Hierbij maak je meestal gebruik van *templates*.
 
-In dit eenvod
+In dit eenvoudige voorbeeld hangt de webpagina af van een *omgevings-variabele*:
+in het template vullen we voor `naam`de waarde van `os.environment("MADE_BY")` in.
 
-In dit voorbeeld maken we een statische website:
-de webserver levert de bestanden op die in de `public` map staan,
-waarbij de URL overeenkomt met het pad van het bestand.
-Dit kunnen html, css en javascript-bestanden zijn.
+Over templates
+--------------
+
+Een *template* (sjabloon) is een tekst (string) waarin elementen opengelaten zijn om deze later in te vullen.
+Het invullen van deze opengelaten elementen noemen we *rendering*.
+
+De opengelaten elementen noteren we in de *template-taal* die bij deze rendering gebruikt wordt.
+De template-taal van Flask is Ninja-2.
+Meer informatie daarover vind je XXX
+
+Voor de notatie van de opengelaten elementen
+
 
 **Opdrachten**
+
+1. voeg aan de functie `hello` 
 
 Over dit voorbeeld
 ------------------

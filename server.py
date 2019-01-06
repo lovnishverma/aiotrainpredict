@@ -10,14 +10,13 @@ app = Flask(__name__, static_folder='public', template_folder='views')
 conn = sqlite3.connect('example.db')
 c = conn.cursor()
 
-def table_exists (name):
-  conn = sqlite3.connect('example.db')
-  c = conn.cursor()
-  c.execute('''SELECT name FROM sqlite_master 
+def table_exists (cursor, name):
+  cursor.execute('''SELECT name FROM sqlite_master 
                     WHERE type='table' AND name='{}';'''.format(name) )
-  res = c.fetchall()
+  res = cursor.fetchall()
   print("res: " + str(res))
   print("result: " + str(len(res)))
+  return len(res) > 0
   
 # Create table
 
@@ -38,8 +37,14 @@ conn.close()
 @app.route('/')
 def home():
     print("home")
-    table_exists("stocks")
-    table_exists("todos")
+    conn = sqlite3.connect('example.db')
+    c = conn.cursor()
+    if not table_exists(c, "todos"):
+      c.execute('''CREATE TABLE IF NOT EXISTS todos 
+                   (id int, todo text)''')
+      c.execute('''INSERT INTO todos VALUES (0, "Booschappen");''')
+      c.execute('''INSERT INTO todos VALUES (1, "Geld halen");''')
+      c.execute('''INSERT INTO todos VALUES (2, "Boek lezen");''')     
     return render_template('app.html', maker=os.environ.get("MADE_BY"))
 
 if __name__ == '__main__':

@@ -70,6 +70,11 @@ zodat deze functie aangeroepen wordt als we een *request* voor `url` krijgen.
    en controleer het resultaat in de "live" app.
 2. Voeg een tweede functie toe, op dezelfde manier als `hello`, voor de url `/hi`. 
    Test deze via de live app.
+   
+**Opmerking** Als je niet de meest recente versie in de browser te zien krijgt,
+kan het zijn dat dit ligt aan de browser: de Glitch-server levert altijd de nieuwste versie.
+
+- in Safari: Ontwikkel/Leeg caches (Alt-Cmd-E)
 
 Over de Glitch omgeving
 -----------------------

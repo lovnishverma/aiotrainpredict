@@ -17,7 +17,8 @@ Deze is in alle nieuwere browsers beschikbaar.
 Maar omdat voor een eerdere versie van de standaard SQLite kandidaat was als browser-database is deze in enkele browsers beschikbaar.
 Dit zal voorlopig nog wel het geval blijven.
 
-* [SQLite toturial[(https://www.tutorialspoint.com/sqlite)
+* [SQLite home](https://sqlite.org)
+* [SQLite tutorial](https://www.tutorialspoint.com/sqlite)
 
 
 De volgende stappen

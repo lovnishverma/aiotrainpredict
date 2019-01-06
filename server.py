@@ -13,9 +13,11 @@ c = conn.cursor()
 def table_exists (name):
   conn = sqlite3.connect('example.db')
   c = conn.cursor()
-  cnt = c.execute('''SELECT COUNT(*) FROM sqlite_master 
+  c.execute('''SELECT name FROM sqlite_master 
                     WHERE type='table' AND name='{}';'''.format(name) )
-  print("result" + str(cnt))
+  res = c.fetchall()
+  print("res: " + str(res))
+  print("result: " + str(len(res)))
   
 # Create table
 

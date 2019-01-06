@@ -1,5 +1,5 @@
-Cursus Python apps met Flask: templates
-=======================================
+Cursus Python apps met Flask: templates(1)
+==========================================
 
 Bij een dynamische website past de server de webpagina's aan op grond van de toestand van de server.
 Voor deze toestand gebruik je meestal een database:
@@ -42,16 +42,19 @@ Jinja-2 en andere template-talen kun je ook in andere toepassingen dan webserver
 Maar voor een webserver gebruik je wel bijna altijd een template-taal.
 (PHP is van oorsprong een template-taal die uitgegroeid is tot een complete programmeertaal.)
 
-
-
-
 **Opdrachten**
+
+*Opmerking* als je een kopie (remix) maakt van een toepassing,
+dan worden de waarden in het `.env`-bestand niet meegekopieerd:
+in dat bestand kun je "geheime" waarden van de toepassing bewaren.
 
 1. voeg aan de functie `hello` een opdracht toe om de waarde van
    `os.environ.get("MADE_BY")` af te drukken.
    Het resultaat van een print-opdracht vind je terug in de Log:
    deze krijg je te zien door te klikken op "Logs" in de linker-zijbalk.
-2. 
+2. verander in het bestand `.env` de waarde van `MADE_BY`, bijvoorbeeld:
+   `MADE_BY=Hans`. Gebruik geen spaties! 
+   Controleer het resultaat met de live app.
 
 Over dit voorbeeld
 ------------------

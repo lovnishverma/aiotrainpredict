@@ -1,5 +1,10 @@
-Cursus Python apps met Flask: statische website
-===============================================
+Cursus Python apps met Flask: templates
+=======================================
+
+Bij een dynamische website past de server de inhoud van de webpagina's aan op grond van de toestand van de server.
+Een uitgebreide toestand houd je meestal bij in een database.
+
+
 
 In dit voorbeeld maken we een statische website:
 de webserver levert de bestanden op die in de `public` map staan,
@@ -8,34 +13,19 @@ Dit kunnen html, css en javascript-bestanden zijn.
 
 **Opdrachten**
 
-1. Pas het html-bestand `index.html` aan, en controleer dit met de live app.
-2. Voeg een html-bestand `about.html` toe, en controleer dit met de live app.
-
 Over dit voorbeeld
 ------------------
 
-Dit voorbeeld geeft de minimale opzet voor een website met Python en Flask.
-We gebruiken Python als scriptingtaal voor de website.
-Flask is een *framework* voor het maken van websites met Python.
-We zullen in de volgende lessen met een aantal aspecten van Flask kennismaken.
-We gaan ervan uit dat je enige kennis van programmeren en van Python hebt.
-
-- het hoofdprogramma van de app is `server.py`
-- de Python-packages en frameworks die de app gebruikt staan in `requirements.txt`
-- de front-end bestanden (html, css, javascript) voor de app staan in de mappen `public` en `views`.
-
-In dit voorbeeld demonstreert twee aspecten van Flask:
-
-1. de *app-structuur*
-2. de *routering*
+**App-structuur**
 
 De app-structuur is in dit geval iets uitgebreider:
 we geven aan `Flask` de naam van de map met de statische bestanden mee.
 
 ```Python
-from flask import Flask
+from flask import Flask, render_template
 
-app = Flask(__name__, ...)
+
+app = Flask(__name__, static_folder='public', template_folder='views')
 ...
 if __name__ == '__main__':
     app.run()

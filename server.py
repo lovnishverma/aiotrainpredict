@@ -3,11 +3,11 @@
 
 from flask import Flask
 
-app = Flask(__name__, static_folder='public')
+app = Flask(__name__, static_folder='public', template_folder='views')
 
 @app.route('/')
-def hello():
-    return 'Hello, World!'
+def home():
+    return render_template('app.html')
 
 if __name__ == '__main__':
     app.run()

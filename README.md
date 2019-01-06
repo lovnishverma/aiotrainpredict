@@ -21,6 +21,12 @@ Dit zal voorlopig nog wel het geval blijven.
 * [SQLite tutorial](https://www.tutorialspoint.com/sqlite)
 
 
+Enkele bijzondere eigenschappen
+-------------------------------
+
+* elke tabel in SQLite heeft een impliciete key `rowid` (64-bits integer).
+* je kunt deze opvragen, en eventueel ook expliciet zetten (bij insert e.d.) - 
+
 De volgende stappen
 -------------------
 

@@ -18,14 +18,6 @@ def table_exists (cursor, name):
   print("result: " + str(len(res)))
   return len(res) > 0
   
-# Create table
-
-c.execute('''CREATE TABLE IF NOT EXISTS stocks
-             (date text, trans text, symbol text, qty real, price real)''')
-
-# Insert a row of data
-c.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
-
 # Save (commit) the changes
 conn.commit()
 
@@ -42,9 +34,12 @@ def home():
     if not table_exists(c, "todos"):
       c.execute('''CREATE TABLE IF NOT EXISTS todos 
                    (id int, todo text)''')
-      c.execute('''INSERT INTO todos VALUES (0, "Booschappen");''')
-      c.execute('''INSERT INTO todos VALUES (1, "Geld halen");''')
-      c.execute('''INSERT INTO todos VALUES (2, "Boek lezen");''')     
+      c.execute('''INSERT INTO todos VALUES ("Boodschappen");''')
+      c.execute('''INSERT INTO todos VALUES ("Geld halen");''')
+      c.execute('''INSERT INTO todos VALUES ("Boek lezen");''')
+      conn.commit()
+      conn.close()
+      
     return render_template('app.html', maker=os.environ.get("MADE_BY"))
 
 if __name__ == '__main__':

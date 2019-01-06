@@ -1,19 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#       _                              
-#      | |                             
-#    __| |_ __ ___  __ _ _ __ ___  ___ 
-#   / _` | '__/ _ \/ _` | '_ ` _ \/ __|
-#  | (_| | | |  __/ (_| | | | | | \__ \
-#   \__,_|_|  \___|\__,_|_| |_| |_|___/ .
-#
-# A 'Fog Creek'–inspired demo by Kenneth Reitz™
-
 import os
 from flask import Flask, request, render_template, jsonify
 
-# Support for gomix's 'front-end' and 'back-end' UI.
+# Support for glitch's 'front-end' and 'back-end' UI.
 app = Flask(__name__, static_folder='public', template_folder='views')
 
 # Set the app secret key from the secret environment variables.

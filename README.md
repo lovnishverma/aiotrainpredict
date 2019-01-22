@@ -25,7 +25,7 @@ De volgende stappen
 
 * statische files
 * templates
-* gebruik van een database (SQLite)
+* gebruik van een database (MongoDB)
 * sessies
 * app-factory
 * headers

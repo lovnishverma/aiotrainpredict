@@ -3,33 +3,26 @@
 
 import os
 from flask import Flask, render_template
-import sqlite3
+import pymongo
 
 app = Flask(__name__, static_folder='public', template_folder='views')
 
-def table_exists (cursor, name):
-  cursor.execute('''SELECT name FROM sqlite_master 
-                    WHERE type='table' AND name='{}';'''.format(name) )
-  res = cursor.fetchall()
-  return len(res) > 0
-
-def fill_table (cursor):
-  if not table_exists(cursor, "todos"):
-    cursor.execute('''CREATE TABLE IF NOT EXISTS todos 
-                 (id int, todo text)''')
-    cursor.execute('''INSERT INTO todos VALUES ("Boodschappen");''')
-    cursor.execute('''INSERT INTO todos VALUES ("Geld halen");''')
-    cursor.execute('''INSERT INTO todos VALUES ("Boek lezen");''')  
+def fill_collection (todos):
+    todos.insert_one({"id": 1, "todo": "Boodschappen"})
+    todos.insert_one({"id": 2, "todo": "Geld halen"})
+    todos.insert_one({"id": 3, "todo": "Boek lezen"})   
 
 @app.route('/')
 def home():
     print("home")
-    conn = sqlite3.connect('example.db')
-    cursor = conn.cursor()
-    fill_table(cursor)
+    client = pymongo.MongoClient('mongodb://eelcodbuser:pets53#Grandeur@ds163354.mlab.com:63354/demodb', 63354) ## /demodb???
+    db = client.demodb
+    todos = db.todos
+    
+    if todos.count_documents({}) == 0:
+      fill_collection(todos)
 
-    cursor.execute('''SELECT rowid, todo FROM todos''')
-    res = cursor.fetchall()
+    res = list(collection.find()) ## all todo's
     print("result: " + str(res))
     todos = []
     for todo in res:

@@ -15,22 +15,20 @@ def fill_collection (todos):
 @app.route('/')
 def home():
     print("home")
-    client = pymongo.MongoClient('mongodb://eelcodbuser:pets53#Grandeur@ds163354.mlab.com:63354/demodb', 63354) ## /demodb???
+    mongo_url = os.environ["MONGO_URL"]
+    mongo_port = 
+    client = pymongo.MongoClient(, 63354) ## /demodb???
     db = client.demodb
     todos = db.todos
     
     if todos.count_documents({}) == 0:
       fill_collection(todos)
 
-    res = list(collection.find()) ## all todo's
+    res = list(todos.find()) ## list of all todo's
     print("result: " + str(res))
-    todos = []
-    for todo in res:
-      todos.append({"id": todo[0], "todo": todo[1]})
-    print(str(todos))              
-    conn.commit()
-    conn.close()
-    return render_template('app.html', maker=os.environ.get("MADE_BY"), todos=todos)
+
+    client.close()
+    return render_template('app.html', maker=os.environ.get("MADE_BY"), todos=res)
 
 if __name__ == '__main__':
     app.run()

@@ -15,8 +15,7 @@ def fill_collection (todos):
 @app.route('/')
 def home():
     print("home")
-    mongo_url = os.environ["MONGO_URL"]
-    mongo_port = int(os.environ["MONGO_PORT"])
+    mongo_url = os.environ.get("MONGO_URL")
     client = pymongo.MongoClient(mongo_url) ## /demodb???
     db = client.demodb
     todos = db.todos

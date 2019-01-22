@@ -1,32 +1,24 @@
-Cursus Python apps met Flask: SQLite database(1)
-================================================
+Cursus Python apps met Flask: MongoDB database(1)
+=================================================
 
-We introduceren hier het gebruik van SQLite in Python.
+We introduceren hier het gebruik van MongoDB in Python.
 
-SQLite is een SQL-database voor eenvoudig gebruik:
-de database wordt in een bestand opgeslagen.
-SQLite is een library: er is geen database-server.
-(Dit betekent bijvoorbeeld dat je een SQLite database niet met meerdere toepassingen tegelijk kunt gebruiken. Voor ons doel is dat geen beperking.)
+MongoDB is een document-database (NoSQL).
+Als database-server gebruiken we *mlab*: zie mblab.com
 
-Over SQLite
------------
+Over MongoDB
+------------
 
-SQLite is ook in enkele browsers (Safari, Chrome) aanwezig, voor de opslag van gegevens in de browser (in plaats van in de server).
-Volgens de HTML-standaard is de aangewezen database in de browser IndexedDB.
-Deze is in alle nieuwere browsers beschikbaar.
-Maar omdat voor een eerdere versie van de standaard SQLite kandidaat was als browser-database is deze in enkele browsers beschikbaar.
-Dit zal voorlopig nog wel het geval blijven.
+* een document komt (ongeveer) overeen met een Python *dictionary*.
+* dat is het formaat dat we ook gebruiken in het interface met de templates (en in AJAX).
 
-* [SQLite home](https://sqlite.org)
-* [SQLite tutorial](https://www.tutorialspoint.com/sqlite)
 
 
 Enkele bijzondere eigenschappen
 -------------------------------
 
-* elke tabel in SQLite heeft een impliciete key `rowid` (64-bits integer).
+* elke document in MongoDB heeft een impliciete key `_id`.
 * je kunt deze opvragen, en eventueel ook expliciet zetten (bij insert e.d.);
-* maar bij `SELECT *` krijg je deze niet te zien.
 
 De volgende stappen
 -------------------

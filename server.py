@@ -14,22 +14,22 @@ def table_exists (cursor, name):
   return len(res) > 0
 
 def fill_table (cursor):
-  if not table_exists(c, "todos"):
-    c.execute('''CREATE TABLE IF NOT EXISTS todos 
+  if not table_exists(cursor, "todos"):
+    cursor.execute('''CREATE TABLE IF NOT EXISTS todos 
                  (id int, todo text)''')
-    c.execute('''INSERT INTO todos VALUES ("Boodschappen");''')
-    c.execute('''INSERT INTO todos VALUES ("Geld halen");''')
-    c.execute('''INSERT INTO todos VALUES ("Boek lezen");''')  
+    cursor.execute('''INSERT INTO todos VALUES ("Boodschappen");''')
+    cursor.execute('''INSERT INTO todos VALUES ("Geld halen");''')
+    cursor.execute('''INSERT INTO todos VALUES ("Boek lezen");''')  
 
 @app.route('/')
 def home():
     print("home")
     conn = sqlite3.connect('example.db')
-    c = conn.cursor()
-    fill_table(c)
+    cursor = conn.cursor()
+    fill_table(cursor)
 
-    c.execute('''SELECT rowid, todo FROM todos''')
-    res = c.fetchall()
+    cursor.execute('''SELECT rowid, todo FROM todos''')
+    res = cursor.fetchall()
     print("result: " + str(res))
     todos = []
     for todo in res:

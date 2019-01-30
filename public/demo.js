@@ -8,7 +8,7 @@ function refresh_todos() {
   var todoList = $
   $.getJSON("/todos", function (data) {  
     for (let todo of data) {
-      $("<li>x</li>").appendTo("#todolist")
+      $("<li>x</li>").appendTo($("#todolist"))
       console.log(JSON.stringify(todo));
     }  
   });

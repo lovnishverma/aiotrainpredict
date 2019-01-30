@@ -12,6 +12,11 @@ def fill_collection (todos):
     todos.insert_one({"id": 2, "todo": "Geld halen"})
     todos.insert_one({"id": 3, "todo": "Boek lezen"})   
 
+@app.route('/todos')
+def todos():
+  pass
+    
+    
 @app.route('/')
 def home():
     print("home")

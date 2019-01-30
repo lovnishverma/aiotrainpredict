@@ -5,9 +5,11 @@ button.onclick = function () {
 }
 
 function refresh_todos() {
-  $.get("/todos", function (data) {
+  var todoList = $
+  $.getJSON("/todos", function (data) {  
     for (let todo of data) {
-      console.log(todo);
+      $("<li>x</li>").appendTo("#todolist")
+      console.log(JSON.stringify(todo));
     }  
   });
 }

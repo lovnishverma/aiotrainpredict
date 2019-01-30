@@ -18,6 +18,9 @@ def get_todos():
     client = pymongo.MongoClient(mongo_url) ## /demodb???
     db = client.demodb
     todos = list(db.todos.find())
+    print("todos")
+    print(todos)
+    client.close()
     return todos
     
     

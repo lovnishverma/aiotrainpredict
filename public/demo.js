@@ -5,5 +5,11 @@ button.onclick = function () {
 }
 
 function refresh_todos() {
-  $
+  $.get("/todos", function (data) {
+    for (let todo of data) {
+      console.log(todo);
+    }  
+  });
 }
+
+refresh_todos();

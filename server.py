@@ -4,6 +4,7 @@
 import os
 from flask import Flask, render_template
 import pymongo
+import json
 
 app = Flask(__name__, static_folder='public', template_folder='views')
 
@@ -17,11 +18,12 @@ def get_todos():
     mongo_url = os.environ.get("MONGO_URL")
     client = pymongo.MongoClient(mongo_url) ## /demodb???
     db = client.demodb
-    todos = list(db.todos.find())
-    print("todos")
-    print(str(todos))
+    todos = db.todos
+    todolist = list(todos.find({}, {"_id":0}))
+    print("todos: " + str(len(todolist)))
+    # print(str(todolist))
     client.close()
-    return todos
+    return json.dumps(todolist)
     
     
 @app.route('/')

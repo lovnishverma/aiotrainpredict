@@ -19,7 +19,7 @@ def get_todos():
     db = client.demodb
     todos = list(db.todos.find())
     print("todos")
-    print(todos)
+    print(str(todos))
     client.close()
     return todos
     

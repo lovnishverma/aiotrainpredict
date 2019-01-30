@@ -4,7 +4,6 @@ button.onclick = function () {
   alert("Hello, World");
 }
 
-function new_todo() {
-  
+function refresh_todos() {
+  $
 }
-

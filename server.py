@@ -13,8 +13,12 @@ def fill_collection (todos):
     todos.insert_one({"id": 3, "todo": "Boek lezen"})   
 
 @app.route('/todos')
-def todos():
-  pass
+def get_todos():
+    mongo_url = os.environ.get("MONGO_URL")
+    client = pymongo.MongoClient(mongo_url) ## /demodb???
+    db = client.demodb
+    todos = list(db.todos.find())
+    return todos
     
     
 @app.route('/')

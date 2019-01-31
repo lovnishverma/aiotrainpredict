@@ -1,7 +1,16 @@
-Cursus Python apps met Flask: MongoDB database(2)
+Cursus Python apps met Flask: MongoDB database(3)
 ================================================
 
 We gebruiken hier de MongoDB database samen met een AJAX-interactie tussen browser en server.
+
+In de vorige stap hebben we het opvragen van alle todo's geïmplementeerd.
+In deze stap maken we een nieuwe todo aan.
+
+In het HTML-document introduceren we hiervoor een eenvoudig "formulier",
+met een aantal invulvelden. 
+(In eerste instantie alleen de naam/beschrijving van de todo.)
+We gebruiken het nummer van de todo als key: de gebruiker kan deze niet zelf invullen.
+
 
 In deze eerste stap veranderen we de server-side rendering van de todo-lijst,
 in een client-side rendering.
@@ -95,6 +104,13 @@ Zie ook:
 
 * https://stackoverflow.com/questions/16586180/typeerror-objectid-is-not-json-serializable (voor de Python/server side)
 * (en hoe voor de client-side? gewoon als string?)
+
+NB: aan de client-side heb je de keys niet nodig, je hoef alleen maar dezelfde waarden weer terug te geven bij een volgende AJAX-operatie.
+De JSON-string-representatie moet de omzetting naar JavaScript en weer terug naar JSON (en BSON) overleven.
+
+**BSON** bevat meer speciale waarden die niet in JSON voorkomen,
+in het bijzonder ook Datum/Tijd-waarden. 
+Deze wil je mogelijk in JavaScript wel kunnen gebruiken.
 
 De volgende stappen
 -------------------

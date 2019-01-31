@@ -5,7 +5,7 @@ import os
 from flask import Flask, render_template
 import pymongo
 import json
-import bson
+from bson import json_util
 
 app = Flask(__name__, static_folder='public', template_folder='views')
 
@@ -14,6 +14,12 @@ def fill_collection (todos):
     todos.insert_one({"id": 2, "todo": "Geld halen"})
     todos.insert_one({"id": 3, "todo": "Boek lezen"})   
 
+@app.route('/todo')
+def new_todo(data)
+    todo = json_util.(data) # convert from JSON format
+    return "OK"
+    
+    
 @app.route('/todos')
 def get_todos():
     mongo_url = os.environ.get("MONGO_URL")
@@ -23,7 +29,7 @@ def get_todos():
     if todos.count_documents({}) == 0:
         fill_collection(todos)
     todolist1 = list(todos.find())
-    print(bson.json_util.dumps(todolist1))
+    print(json_util.dumps(todolist1))
     todolist = list(todos.find({}, {"_id":0}))
     print("todos: " + str(len(todolist)))
     print(str(todolist))

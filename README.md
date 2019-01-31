@@ -91,6 +91,11 @@ maar deze (i) heeft in het interface met de gebruiker geen betekenis;
 en (ii) levert problemen op als onderdeel van een JSON-object.
 Voor dat laatste moeten we dan zowel de conversie naar als van JSON-formaat aanpassen. 
 
+Zie ook:
+
+* https://stackoverflow.com/questions/16586180/typeerror-objectid-is-not-json-serializable (voor de Python/server side)
+* (en hoe voor de client-side? gewoon als string?)
+
 De volgende stappen
 -------------------
 

@@ -10,6 +10,9 @@ De server levert de lijst met todo's op in het JSON-formaat.
 In de browser wordt dit JSON-formaat omgezet in een JavaScript-object;
 daarmee wordt de HTML-tekst aangepast (via DOM-operaties).
 
+In de server verschuift het opzoeken van de todo's van de `home (/)`-functie naar de `get_todos (/todos)`-functie.
+De iteratie over alle todo-elementen verschuift van het template (server-side) naar de JavaScript-functie (client-side).
+
 AJAX
 ----
 
@@ -81,6 +84,12 @@ maar kan je dwars zitten bij veranderingen in de template-tekst.
 Je kunt dit omzeilen door in het gebruik van een template de bestandsnaam tijdelijk te veranderen,
 en dan weer terug te veranderen.
 Bijvoorbeeld: verander `render_template('app.html', ...)` in `render_template('app1.html', ...)` en terug.
+
+**key's (id)**: wat gebruiken we als key voor de todo-documenten?
+We kunnen de ingebouwde `ObjectId`-key gebruiken, 
+maar deze (i) heeft in het interface met de gebruiker geen betekenis;
+en (ii) levert problemen op als onderdeel van een JSON-object.
+Voor dat laatste moeten we dan zowel de conversie naar als van JSON-formaat aanpassen. 
 
 De volgende stappen
 -------------------

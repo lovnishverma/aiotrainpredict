@@ -19,6 +19,8 @@ def get_todos():
     client = pymongo.MongoClient(mongo_url) ## /demodb???
     db = client.demodb
     todos = db.todos
+    if todos.count_documents({}) == 0:
+        fill_collection(todos)
     todolist = list(todos.find({}, {"_id":0}))
     print("todos: " + str(len(todolist)))
     print(str(todolist))
@@ -29,19 +31,7 @@ def get_todos():
 @app.route('/')
 def home():
     print("home")
-    mongo_url = os.environ.get("MONGO_URL")
-    client = pymongo.MongoClient(mongo_url) ## /demodb???
-    db = client.demodb
-    todos = db.todos
-    
-    if todos.count_documents({}) == 0:
-      fill_collection(todos)
-
-    res = list(todos.find()) ## list of all todo's
-    print("result: " + str(res))
-
-    client.close()
-    return render_template('app.html', maker=os.environ.get("MADE_BY"), todos=res)
+    return render_template('app.html', maker=os.environ.get("MADE_BY"))
 
 if __name__ == '__main__':
     app.run()

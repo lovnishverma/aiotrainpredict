@@ -21,7 +21,7 @@ def get_todos():
     todos = db.todos
     todolist = list(todos.find({}, {"_id":0}))
     print("todos: " + str(len(todolist)))
-    # print(str(todolist))
+    print(str(todolist))
     client.close()
     return json.dumps(todolist)
     

@@ -3,6 +3,13 @@ Cursus Python apps met Flask: MongoDB database(2)
 
 We gebruiken hier de MongoDB database samen met een AJAX-interactie tussen browser en server.
 
+In deze eerste stap veranderen we de server-side rendering van de todo-lijst,
+in een client-side rendering.
+Met behulp van een JavaScript-functie in een AJAX-interactie vraagt de app de lijst met todo's op van de server.
+De server levert de lijst met todo's op in het JSON-formaat.
+In de browser wordt dit JSON-formaat omgezet in een JavaScript-object;
+daarmee wordt de HTML-tekst aangepast (via DOM-operaties).
+
 AJAX
 ----
 
@@ -68,7 +75,12 @@ Dit betekent dat we in de server de input vanuit de browser altijd moeten contro
 dit is een belangrijke reden om jQuery te gebruiken.
 
 **template-caching**: als de html-code niet verandert in de app, 
-terwijl je het bestand wel 
+terwijl je het bestand wel veranderd hebt, dan kun je last hebben van de Python template-caching.
+Deze is bedoeld om de server sneller te laten werken,
+maar kan je dwars zitten bij veranderingen in de template-tekst.
+Je kunt dit omzeilen door in het gebruik van een template de bestandsnaam tijdelijk te veranderen,
+en dan weer terug te veranderen.
+Bijvoorbeeld: verander `render_template('app.html', ...)` in `render_template('app1.html', ...)` en terug.
 
 De volgende stappen
 -------------------

@@ -67,6 +67,9 @@ Dit betekent dat we in de server de input vanuit de browser altijd moeten contro
 **jQuery**: het gebruik van AJAX in puur JavaScript is onhandig:
 dit is een belangrijke reden om jQuery te gebruiken.
 
+**template-caching**: als de html-code niet verandert in de app, 
+terwijl je het bestand wel 
+
 De volgende stappen
 -------------------
 

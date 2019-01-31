@@ -33,18 +33,13 @@ def new_todo(data):
 def get_todos():
     mongo_url = os.environ.get("MONGO_URL")
     client = pymongo.MongoClient(mongo_url) ## /demodb???
-    db = client.demodb
-    todos = db.todos
+    todos = client.demodb.todos
     if todos.count_documents({}) == 0:
         fill_collection(todos)
-    todolist1 = list(todos.find())
-    print(json_util.dumps(todolist1))
-    todolist = list(todos.find({}, {"_id":0}))
-    print("todos: " + str(len(todolist)))
-    print(str(todolist))
+    todolist = list(todos.find())
+    print(json_util.dumps(todolist))
     client.close()
-    return json_util.dumps(todolist1)
-    
+    return json_util.dumps(todolist)
     
 @app.route('/')
 def home():

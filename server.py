@@ -5,6 +5,7 @@ import os
 from flask import Flask, render_template
 import pymongo
 import json
+import bson
 
 app = Flask(__name__, static_folder='public', template_folder='views')
 
@@ -21,6 +22,8 @@ def get_todos():
     todos = db.todos
     if todos.count_documents({}) == 0:
         fill_collection(todos)
+    todolist1 = list(todos.find())
+    print(bson.json_util.dumps(todolist1))
     todolist = list(todos.find({}, {"_id":0}))
     print("todos: " + str(len(todolist)))
     print(str(todolist))

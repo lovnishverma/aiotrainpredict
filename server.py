@@ -1,7 +1,9 @@
+
 from flask import *  
 import sqlite3
-import pandas as pd 
-import numpy as np 
+import numpy   
+import pandas  as pd 
+from  sklearn.linear_model import LinearRegression 
 
 app = Flask(__name__)
 
@@ -9,7 +11,12 @@ app = Flask(__name__)
 def machinelearning():
   url  = "https://raw.githubusercontent.com/sarwansingh/Python/master/ClassExamples/data/student-pass-fail-data.csv"
   dfspf = pd.read_csv(url)
-  dfspf.head()
+  df1 = dfspf.values
+  X = df1[:,0:2]
+  Y = df1[:,2]
+  
+  return "pandas done" + str(dfspf.iloc[0,1])
+  #dfspf.head()
 
 @app.route('/')
 def defaultroot():

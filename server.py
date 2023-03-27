@@ -1,7 +1,15 @@
 from flask import *  
 import sqlite3
+import pandas as pd 
+import numpy as np 
 
 app = Flask(__name__)
+
+@app.route("/ml")
+def machinelearning():
+  url  = "https://raw.githubusercontent.com/sarwansingh/Python/master/ClassExamples/data/student-pass-fail-data.csv"
+  dfspf = pd.read_csv(url)
+  dfspf.head()
 
 @app.route('/')
 def defaultroot():

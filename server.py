@@ -7,6 +7,10 @@ from  sklearn.linear_model import LinearRegression
 
 app = Flask(__name__)
 
+#   install following in glitch terminal 
+# pip install scikit-learn
+# pip install pandas
+
 @app.route("/ml")
 def machinelearning():
   url  = "https://raw.githubusercontent.com/sarwansingh/Python/master/ClassExamples/data/student-pass-fail-data.csv"
@@ -14,8 +18,10 @@ def machinelearning():
   df1 = dfspf.values
   X = df1[:,0:2]
   Y = df1[:,2]
-  
-  return "pandas done" + str(dfspf.iloc[0,1])
+  model = LinearRegression ()
+  model.fit( X , Y )
+  arr = model.predict([[3,35]] )
+  return "Prediction  :  " + str(arr[0])
   #dfspf.head()
 
 @app.route('/')

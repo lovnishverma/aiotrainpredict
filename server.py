@@ -1,4 +1,3 @@
-
 from flask import *  
 import sqlite3
 import numpy   
@@ -13,15 +12,15 @@ app = Flask(__name__)
 
 @app.route("/ml")
 def machinelearning():
-  url  = "https://raw.githubusercontent.com/sarwansingh/Python/master/ClassExamples/data/student-pass-fail-data.csv"
+  url   = "https://raw.githubusercontent.com/sarwansingh/Python/master/ClassExamples/data/student-pass-fail-data.csv"
   dfspf = pd.read_csv(url)
-  df1 = dfspf.values
-  X = df1[:,0:2]
-  Y = df1[:,2]
+  df1   = dfspf.values
+  X = df1[:,0:2] # all rows and first two columns  becomes my input ie. X
+  Y = df1[:,2]   # all rows and only third column becomes my output ie Y 
   model = LinearRegression ()
   model.fit( X , Y )
-  arr = model.predict([[3,35]] )
-  return "Prediction  :  " + str(arr[0])
+  arr   = model.predict([[5,25]] )
+  return "Passing Prediction   :  " + str(arr[0] * 100) + "%"
   #dfspf.head()
 
 @app.route('/')

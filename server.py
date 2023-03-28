@@ -9,6 +9,10 @@ app = Flask(__name__)
 #   install following in glitch terminal 
 # pip install scikit-learn
 # pip install pandas
+@app.route('/iris')
+def indexpage():
+  return render_template("iris.html")
+
 
 @app.route("/p", methods=["POST"])
 def predictresult():

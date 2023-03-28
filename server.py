@@ -10,6 +10,11 @@ app = Flask(__name__)
 # pip install scikit-learn
 # pip install pandas
 
+@app.route("/p", methods="POST")
+def predictresult():
+  
+  return result 
+
 @app.route("/ml")
 def machinelearning():
   url   = "https://raw.githubusercontent.com/sarwansingh/Python/master/ClassExamples/data/student-pass-fail-data.csv"
@@ -24,6 +29,11 @@ def machinelearning():
   #dfspf.head()
 
 @app.route('/')
+def indexpage():
+  return render_template("index.html")
+
+
+
 def defaultroot():
   #get the data from database - db1 and table - students
   con  = sqlite3.connect("db1")  # connect sms database

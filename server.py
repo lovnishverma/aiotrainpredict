@@ -10,8 +10,31 @@ app = Flask(__name__)
 # pip install scikit-learn
 # pip install pandas
 @app.route('/iris')
-def indexpage():
+def irispage():
   return render_template("iris.html")
+
+@app.route('/irisp' , methods=["POST"])
+def irispredict():
+  sw = eval ( request.form.get ( "sw") )
+  sh = eval ( request.form.get ( "sh") )
+  pw = eval ( request.form.get ( "pw") )
+  ph = eval ( request.form.get ( "ph") )
+  ######### machine learning
+  url ="https://raw.githubusercontent.com/sarwansingh/Python/master/ClassExamples/data/iris.csv"
+  nameslist = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
+  dfIris =  pd.read_csv(url, header=None, names=nameslist)
+  df2 = dfIris.values
+  
+  #divide data into feature matrix and target matrix
+  X = df2[:,:4] # all the rows and first four columns 0-3
+  Y = df2[:,4]   # all the rows and only fourth column (last column )
+  
+  from sklearn.linear_model import LogisticRegression
+  model1= LogisticRegression()
+  model1.fit(X,Y)
+  arr  = model1.predict([[ sw, sh, pw, ph]])
+  ###############
+  return render_template("iris.html" , data = str( arr[0]) )
 
 
 @app.route("/p", methods=["POST"])

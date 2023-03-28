@@ -5,30 +5,32 @@
       IRIS flower prediction  
     </h1>
     <hr>
-    <form action="/p" method="post">
+    <form action="/irisp" method="post">
       <table border="1">
         <tr>
-          <td> Hours of self study daily </td>
-          <td>    
-            <select name="hrsself">
-              {% for i in range (2,16)%}
-                <option> {{ i}}</option>
-              {%endfor%}
-            </select>
+          <td> Sepal Width  </td>
+          <td> <input type = "text" name="sw">
           </td>
         </tr>
         <tr>
-          <td> Hours spent on Tutorials/tution Monthly </td>
-          <td> <select name="hrstut">
-              {% for i in range (20,46)%}
-                <option> {{ i}}</option>
-              {%endfor%}
-            </select> 
-         </td>
+          <td> Sepal height  </td>
+          <td> <input type = "text" name="sh">
+          </td>
+        </tr>
+           <tr>
+          <td> Petal Width  </td>
+          <td> <input type = "text" name="pw">
+          </td>
         </tr>
         <tr>
+          <td> petal height  </td>
+          <td> <input type = "text" name="ph">
+          </td>
+        </tr>
+        
+        <tr>
           <td colspan="2" align="center">
-            <input type="submit" value="Predict Passing Probability (Result)">
+            <input type="submit" value="Predict flower type">
             <input type="reset" value ="clear">
           </td>
         </tr>

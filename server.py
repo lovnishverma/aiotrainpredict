@@ -25,7 +25,7 @@ def predictresult():
   arr   = model.predict([[hrsself,hrstut]] )
   #################
   result = arr[0] *100
-  return str(result) + "%"
+  return render_template("index.html", data = str(result) + "%")
 
 @app.route("/ml")
 def machinelearning():

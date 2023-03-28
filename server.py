@@ -52,7 +52,7 @@ def predictresult():
   arr   = model.predict([[hrsself,hrstut]] )
   #################
   result = arr[0] *100
-  return render_template("index.html", data = str(result) + "%")
+  return render_template("result.html", data = str(result) + "%")
 
 @app.route("/ml")
 def machinelearning():
@@ -65,13 +65,15 @@ def machinelearning():
   model.fit( X , Y )
   arr   = model.predict([[5,25]] )
   return "Passing Prediction   :  " + str(arr[0] * 100) + "%"
-  #dfspf.head()
+
+
+@app.route('/result')
+def resultpage():
+  return render_template("result.html")
 
 @app.route('/')
 def indexpage():
   return render_template("index.html")
-
-
 
 def defaultroot():
   #get the data from database - db1 and table - students

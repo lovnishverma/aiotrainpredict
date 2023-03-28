@@ -2,39 +2,25 @@
   
   <body>
     <h1>
-      Result Prediction 
+      Machine Learning Projects    
     </h1>
     <hr>
-    <form action="/p" method="post">
+     
       <table border="1">
         <tr>
-          <td> Hours of self study daily </td>
+          <td> Result Prediction using Linear Regresson  </td>
           <td>    
-            <select name="hrsself">
-              {% for i in range (2,16)%}
-                <option> {{ i}}</option>
-              {%endfor%}
-            </select>
+           <a href="/result"> Go to Result Prediction Project </a>
           </td>
         </tr>
-        <tr>
-          <td> Hours spent on Tutorials/tution Monthly </td>
-          <td> <select name="hrstut">
-              {% for i in range (20,46)%}
-                <option> {{ i}}</option>
-              {%endfor%}
-            </select> 
-         </td>
-        </tr>
-        <tr>
-          <td colspan="2" align="center">
-            <input type="submit" value="Predict Passing Probability (Result)">
-            <input type="reset" value ="clear">
+       <tr>
+          <td> Flower type Prediction using Logistic Regresson  </td>
+          <td>    
+           <a href="/iris"> Go to Flower Prediction Project </a>
           </td>
         </tr>
+        
       </table>
-      
-    </form>
-      {{ data }}
+ 
   </body>
 </html>

@@ -21,8 +21,8 @@ def irispredict():
   ph = eval ( request.form.get ( "ph") )
   ######### machine learning
   url ="https://raw.githubusercontent.com/sarwansingh/Python/master/ClassExamples/data/iris.csv"
-  nameslist = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
-  dfIris =  pd.read_csv(url, header=None, names=nameslist)
+  #nameslist = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
+  dfIris =  pd.read_csv(url, header=None ) # , names=nameslist)
   df2 = dfIris.values
   
   #divide data into feature matrix and target matrix
@@ -34,7 +34,7 @@ def irispredict():
   model1.fit(X,Y)
   arr  = model1.predict([[ sw, sh, pw, ph]])
   ###############
-  return render_template("iris.html" , data = str( arr[0]) )
+  return render_template("iris.html" , data = str( arr[0] ) )
 
 
 @app.route("/p", methods=["POST"])

@@ -9,11 +9,22 @@
       <table border="1">
         <tr>
           <td> Hours of self study daily </td>
-          <td> <input type="text" name="hrsself">  </td>
+          <td>    
+            <select name="hrsself">
+              {% for i in range (2,16)%}
+                <option> {{ i}}</option>
+              {%endfor%}
+            </select>
+          </td>
         </tr>
         <tr>
           <td> Hours spent on Tutorials/tution Monthly </td>
-          <td> <input type="text" name="hrstut">  </td>
+          <td> <select name="hrstut">
+              {% for i in range (20,46)%}
+                <option> {{ i}}</option>
+              {%endfor%}
+            </select> 
+         </td>
         </tr>
         <tr>
           <td colspan="2" align="center">

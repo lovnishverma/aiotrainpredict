@@ -10,10 +10,22 @@ app = Flask(__name__)
 # pip install scikit-learn
 # pip install pandas
 
-@app.route("/p", methods="POST")
+@app.route("/p", methods=["POST"])
 def predictresult():
-  
-  return result 
+  hrsself = int ( request.form.get ( "hrsself") )
+  hrstut  = int ( request.form.get ( "hrstut") ) 
+  # predict and save the output in result variable
+  url   = "https://raw.githubusercontent.com/sarwansingh/Python/master/ClassExamples/data/student-pass-fail-data.csv"
+  dfspf = pd.read_csv(url)
+  df1   = dfspf.values
+  X = df1[:,0:2] # all rows and first two columns  becomes my input ie. X
+  Y = df1[:,2]   # all rows and only third column becomes my output ie Y 
+  model = LinearRegression ()
+  model.fit( X , Y )
+  arr   = model.predict([[hrsself,hrstut]] )
+  #################
+  result = arr[0] *100
+  return str(result) + "%"
 
 @app.route("/ml")
 def machinelearning():

@@ -3,6 +3,7 @@ import sqlite3
 import numpy   
 import pandas  as pd 
 from  sklearn.linear_model import LinearRegression 
+from sklearn.linear_model import LogisticRegression
 
 app = Flask(__name__)
 
@@ -65,6 +66,18 @@ def machinelearning():
   model.fit( X , Y )
   arr   = model.predict([[5,25]] )
   return "Passing Prediction   :  " + str(arr[0] * 100) + "%"
+
+@app.route("/rain")
+def rainpredict():
+  url   = "https://raw.githubusercontent.com/priyanka9-99/aiot/main/test.csv"
+  dfspf = pd.read_csv(url)
+  df1   = dfspf.values
+  X = df1[:,0:3] # all rows and first two columns  becomes my input ie. X
+  Y = df1[:,3]   # all rows and only third column becomes my output ie Y 
+  model2 = LogisticRegression ()
+  model2.fit( X , Y )
+  arr   = model2.predict([[2017,7,33]] )
+  return "Rain Prediction   :  " + str(arr[0] ) + " mm"
 
 
 @app.route('/result')

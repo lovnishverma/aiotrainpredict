@@ -26,7 +26,7 @@ def rainpredict():
 
 @app.route('/rainpage')
 def rainpage():
-  return render_template("index.html")
+  return render_template("rain.html")
 
 if __name__ == "__main__":
   app.run(debug=True)

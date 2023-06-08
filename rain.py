@@ -1,10 +1,15 @@
 from flask import *  
+import sqlite3
 import numpy   
 import pandas  as pd 
 from  sklearn.linear_model import LinearRegression 
 from sklearn.linear_model import LogisticRegression
 
 app = Flask(__name__)
+
+@app.route('/')
+def rainpage():
+  return render_template("rain.html")
 
 @app.route("/rain", methods=["POST"])
 def rainpredict():
@@ -19,7 +24,7 @@ def rainpredict():
   model2 = LogisticRegression ()
   model2.fit( X , Y )
   arr   = model2.predict([[sw, sh, pw]] )
-  return render_template("rain.html" , data =  str( arr[0] ) + " mm")
+  return render_template("rain.html" , data = str( arr[0] ) + " mm")
 
 if __name__ == '__main__':
   app.run()

@@ -12,7 +12,7 @@ def index():
 def rain_page():
     return render_template("rain.html")
 
-@app.route('/predict_rain', methods=["POST"])
+@app.route('/rain', methods=["POST"])
 def predict_rain():
     sw = float(request.form.get("sw"))
     sh = float(request.form.get("sh"))

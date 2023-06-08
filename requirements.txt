@@ -3,4 +3,5 @@ sqlite3
 pandas
 numpy
 scikit-learn
-mysql-connector-python
+beautifulsoup4
+requests

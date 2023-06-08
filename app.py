@@ -3,6 +3,8 @@ import numpy
 import pandas  as pd 
 from  sklearn.linear_model import LinearRegression 
 from sklearn.linear_model import LogisticRegression
+import requests
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
   
@@ -29,9 +31,23 @@ def rainpredict():
   arr   = model2.predict([[sw, sh, pw]] )
   return render_template("rain.html" , data = str( arr[0] ) + " mm")
 
-@app.route('/live_sensor_data')
-def live_sensor_data():
-  return render_template("template.html")
+@app.route('/scrape_table_data')
+def scrape_table_data():
+    url = 'https://onlinenielitchandigarh.000webhostapp.com/'
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    table = soup.find('table')
+    rows = table.find_all('tr')
+    latest_row = rows[1]  # Get the latest top row
+    cells = latest_row.find_all('td')
+    temperature = cells[1].text
+    date_time = cells[0].text
+    return temperature, date_time
+
+@app.route('/')
+def index():
+    temperature, date_time = scrape_table_data()
+    return render_template('temp.html', temperature=temperature, date_time=date_time)
 
 if __name__ == "__main__":
   app.run(debug=True)

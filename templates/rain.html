@@ -9,17 +9,33 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
     }
 
     h1 {
       text-align: center;
       color: #333;
+      margin: 30px 0;
     }
 
     hr {
       border: none;
       border-top: 2px solid #333;
       margin: 20px 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .container table {
+      animation: slideInBottom 0.5s ease-in-out;
     }
 
     table {
@@ -41,40 +57,76 @@
       background-color: #e0e0e0;
     }
 
-    a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
+    .btn {
+      animation: fadeIn 0.5s ease-in-out;
     }
 
-    .error {
-      color: red;
+    .copyright {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+      font-size: 12px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideInBottom {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>Rainfall prediction</h1>
-    <hr>
+    <h1>Rainfall Prediction</h1>
+    <hr />
+
     <form action="{{ url_for('rainpredict') }}" method="POST" onsubmit="return validateForm()">
       <table class="table table-bordered">
         <tr>
-          <td>Year</td>
+          <td>Select Year:</td>
           <td>
             <input type="text" name="sw" id="sw">
             <span id="yearError" class="error"></span>
           </td>
         </tr>
         <tr>
-          <td>Month</td>
+          <td> Select Month:</td>
           <td>
-            <input type="text" name="sh" id="sh">
+            <select name="sh" id="sh">
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
             <span id="monthError" class="error"></span>
           </td>
         </tr>
         <tr>
-          <td>Temperature</td>
+          <td>Temperature in Celsius</td>
           <td>
             <input type="text" name="pw" id="pw">
             <span id="temperatureError" class="error"></span>
@@ -82,15 +134,19 @@
         </tr>
         <tr>
           <td colspan="2" align="center">
-            <input type="submit" value="Predict Rainfall">
-            <input type="reset" value="Clear">
+            <input type="submit" value="Predict Rainfall" class="btn btn-primary">
+            <input type="reset" value="Clear" class="btn btn-secondary">
           </td>
         </tr>
       </table>
     </form>
     {{ data }}
-    <hr>
+    <hr />
     <a href="/">Go Back to Home Page</a>
+
+    <p class="copyright">
+      &copy; 2023 Rayat Group of Institutes Students. All rights reserved.
+    </p>
   </div>
 
   <!-- Add Bootstrap JS (Optional) -->
@@ -125,8 +181,9 @@
       }
 
       // Validate temperature input
-      if (temperatureInput.value === "") {
-        temperatureError.textContent = "Please enter a temperature";
+      var temperature = parseFloat(temperatureInput.value);
+      if (isNaN(temperature) || temperature < 1 || temperature > 100) {
+        temperatureError.textContent = "Please enter a temperature between 1 and 100";
         isValid = false;
       }
 

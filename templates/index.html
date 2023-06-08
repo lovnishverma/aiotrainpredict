@@ -1,89 +1,113 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Add Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
 
-    <style>
-      body {
-        font-family: Arial, sans-serif;
+<head>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin: 30px 0;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #333;
+      margin: 20px 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .container table {
+      animation: slideInBottom 0.5s ease-in-out;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+      background-color: #e0e0e0;
+    }
+
+    .btn {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideInBottom {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
       }
-
-      h1 {
-        text-align: center;
-        color: #333;
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
 
-      hr {
-        border: none;
-        border-top: 2px solid #333;
-        margin: 20px 0;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
       }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+      100% {
+        opacity: 1;
       }
+    }
+  </style>
+</head>
 
-      table td {
-        padding: 10px;
-        text-align: center;
-      }
+<body>
+  <div class="container">
+    <h1>Rayat Group of Institutes Students AIOT Project:</h1>
+    <hr />
 
-      table tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
+    <table class="table table-bordered">
+      <tr>
+        <td>View Live Real-time Sensor Data</td>
+        <td>
+          <a class="btn btn-primary" href="https://onlinenielitchandigarh.000webhostapp.com" target="_blank"
+            rel="noopener noreferrer">Go to Live Sensor Data</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Go to Rain Prediction using Logistic Regression</td>
+        <td>
+          <a class="btn btn-primary" href="/rainpredict">Go to Rain Prediction</a>
+        </td>
+      </tr>
+    </table>
+  </div>
 
-      table tr:hover {
-        background-color: #e0e0e0;
-      }
+  <!-- Add Bootstrap JS (Optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6g0nB1PBbB8g3O6cps+1kaCk5Sv9b9+x" crossorigin="anonymous"></script>
+</body>
 
-      a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Rayat Group of Institutes Students AIOT Project:</h1>
-      <hr />
-
-      <table class="table table-bordered">
-        <tr>
-          <td>View Live Real-time Sensor Data</td>
-          <td>
-            <a
-              class="btn btn-primary"
-              href="https://onlinenielitchandigarh.000webhostapp.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Go to Live Sensor Data
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>Go to Rain Prediction using Logistic Regression</td>
-          <td>
-            <a class="btn btn-primary" href="/rainpredict">Go to Rain Prediction</a>
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Add Bootstrap JS (Optional) -->
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6g0nB1PBbB8g3O6cps+1kaCk5Sv9b9+x"
-      crossorigin="anonymous"
-    ></script>
-  </body>
 </html>

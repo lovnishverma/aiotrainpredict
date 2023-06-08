@@ -3,13 +3,17 @@ import numpy
 import pandas  as pd 
 from  sklearn.linear_model import LinearRegression 
 from sklearn.linear_model import LogisticRegression
+from flask import Flask, render_template, request
+import pymysql
+from pymysql import err
 
 app = Flask(__name__)
+
 @app.route('/')
 def index():
   return render_template("index.html")
 
-@app.route('/')
+@app.route('/rainpredict')
 def rainredict():
   return render_template("rain.html")
 
@@ -27,6 +31,11 @@ def rainpredict():
   model2.fit( X , Y )
   arr   = model2.predict([[sw, sh, pw]] )
   return render_template("rain.html" , data = str( arr[0] ) + " mm")
+
+@app.route('/live_sensor_data')
+def live_sensor_data():
+  return render_template("template.html")
+
 
 
 if __name__ == "__main__":

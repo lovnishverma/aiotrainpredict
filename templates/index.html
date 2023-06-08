@@ -1,20 +1,63 @@
 <html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #333;
+        margin: 20px 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      table td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      table tr:hover {
+        background-color: #e0e0e0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+    </style>
+  </head>
   <body>
     <h1>Machine Learning:</h1>
     <hr />
 
     <table border="1">
       <tr>
-        <td>View Live Real time Sensor data</td>
+        <td>View Live Real-time Sensor Data</td>
         <td>
-          <a href="/live_sensor_data"> Go to Live Sensor data </a>
+          <a href="/live_sensor_data">Go to Live Sensor Data</a>
         </td>
       </tr>
       <tr>
-        <td>Go to Rain Prediction using Logistic Regresson</td>
+        <td>Go to Rain Prediction using Logistic Regression</td>
         <td>
-         
-        </td> <a href="/rainpredict"> Go to Rain Prediction </a>
+          <a href="/rainpredict">Go to Rain Prediction</a>
+        </td>
       </tr>
     </table>
   </body>

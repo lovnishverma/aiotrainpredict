@@ -1,2 +1,3 @@
 python app.py
-python index.py
+python rainpredict.py
+python live_sensor_data.py

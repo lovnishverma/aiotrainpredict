@@ -3,13 +3,8 @@ import numpy
 import pandas  as pd 
 from  sklearn.linear_model import LinearRegression 
 from sklearn.linear_model import LogisticRegression
-from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-
-@app.route('/sensor')
-def sensor():
-    return redirect("https://google.com")
   
 @app.route('/')
 def index():

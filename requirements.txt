@@ -3,5 +3,4 @@ sqlite3
 pandas
 numpy
 scikit-learn
-beautifulsoup4
 requests

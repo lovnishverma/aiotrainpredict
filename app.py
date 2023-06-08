@@ -1,5 +1,4 @@
-from flask import *  
-import sqlite3
+from flask import *
 import numpy   
 import pandas  as pd 
 from  sklearn.linear_model import LinearRegression 
@@ -8,6 +7,8 @@ from sklearn.linear_model import LogisticRegression
 app = Flask(__name__)
 
 @app.route("/", methods=["POST"])
+def rainpage():
+  return render_template("rain.html")
 def rainpredict():
   sw = eval ( request.form.get ( "sw") )
   sh = eval ( request.form.get ( "sh") )

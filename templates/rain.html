@@ -6,8 +6,28 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-  
-  
+  <style>
+    .table-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .my-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    .my-table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -63,11 +83,20 @@
       animation: fadeIn 0.5s ease-in-out;
     }
 
-    .copyright {
-      text-align: center;
+    .error {
+      color: red;
+    }
+
+    #rainfallOutput {
       margin-top: 20px;
-      color: #777;
-      font-size: 12px;
+      font-weight: bold;
+    }
+
+    #refreshBtn {
+      margin-top: 10px;
+    }
+
+    .fade-in {
       animation: fadeIn 0.5s ease-in-out;
     }
 
@@ -103,7 +132,7 @@
         <tr>
           <td>Select Year:</td>
           <td>
-            <input type="text" name="sw" id="sw">
+            <input type="text" name="sw" id="sw"> <br>
             <span id="yearError" class="error"></span>
           </td>
         </tr>
@@ -138,26 +167,22 @@
           <td colspan="2" align="center">
             <input type="submit" value="Predict Rainfall" class="btn btn-primary">
             <input type="reset" value="Clear" class="btn btn-secondary">
-            <button class="btn btn-primary" onclick="location.reload()">Refresh</button>
+            <button id="refreshBtn" class="btn btn-primary" onclick="refreshData()">Refresh</button>
           </td>
         </tr>
       </table>
     </form>
     <div id="myTable" class="table-container">
-  <table class="my-table">
-    <tr>
-      <td colspan="2" align="center">
-        {{ data }}
-      </td>
-    </tr>
-  </table>
-</div>
+      <table class="my-table">
+        <tr>
+          <td colspan="2" align="center" id="rainfallOutput" class="fade-in">
+            Rainfall can be about: {{ data }}
+          </td>
+        </tr>
+      </table>
+    </div>
     <hr />
     <a href="/">Go Back to Home Page</a>
-
-    <p class="copyright">
-      &copy; 2023 Rayat Group of Institutes Students. All rights reserved.
-    </p>
   </div>
 
   <!-- Add Bootstrap JS (Optional) -->
@@ -172,6 +197,7 @@
       var yearError = document.getElementById("yearError");
       var monthError = document.getElementById("monthError");
       var temperatureError = document.getElementById("temperatureError");
+
       var isValid = true;
 
       // Reset error messages
@@ -199,6 +225,10 @@
       }
 
       return isValid;
+    }
+
+    function refreshData() {
+      document.getElementById("rainfallOutput").textContent = "";
     }
   </script>
 </body>

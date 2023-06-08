@@ -1,5 +1,4 @@
 from flask import *  
-import sqlite3
 import numpy   
 import pandas  as pd 
 from  sklearn.linear_model import LinearRegression 

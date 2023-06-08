@@ -10,9 +10,26 @@ app = Flask(__name__)
 #   install following in glitch terminal 
 # pip install scikit-learn
 # pip install pandas
-@app.route('/iris')
-def irispage():
-  return render_template("iris.html")
+@app.route('/')
+def rainpage():
+  return render_template("rain.html")
+
+@app.route("/rain", methods=["POST"])
+def rainpredict():
+  sw = eval ( request.form.get ( "sw") )
+  sh = eval ( request.form.get ( "sh") )
+  pw = eval ( request.form.get ( "pw") )
+  url   = "https://raw.githubusercontent.com/priyanka9-99/aiot/main/test.csv"
+  dfspf = pd.read_csv(url)
+  df1   = dfspf.values
+  X = df1[:,0:3] # all rows and first two columns  becomes my input ie. X
+  Y = df1[:,3]   # all rows and only third column becomes my output ie Y 
+  model2 = LogisticRegression ()
+  model2.fit( X , Y )
+  arr   = model2.predict([[sw, sh, pw]] )
+  return render_template("rain.html" , data = str( arr[0] ) + " mm")
+  # return "Rain Prediction   :  " + str(arr[0] ) + " mm"
+
 
 @app.route('/irisp' , methods=["POST"])
 def irispredict():
@@ -67,26 +84,15 @@ def machinelearning():
   arr   = model.predict([[5,25]] )
   return "Passing Prediction   :  " + str(arr[0] * 100) + "%"
 
-@app.route("/rain")
-def rainpredict():
-  url   = "https://raw.githubusercontent.com/priyanka9-99/aiot/main/test.csv"
-  dfspf = pd.read_csv(url)
-  df1   = dfspf.values
-  X = df1[:,0:3] # all rows and first two columns  becomes my input ie. X
-  Y = df1[:,3]   # all rows and only third column becomes my output ie Y 
-  model2 = LogisticRegression ()
-  model2.fit( X , Y )
-  arr   = model2.predict([[2017,7,33]] )
-  return "Rain Prediction   :  " + str(arr[0] ) + " mm"
 
 
 @app.route('/result')
 def resultpage():
   return render_template("result.html")
 
-@app.route('/')
-def indexpage():
-  return render_template("index.html")
+# @app.route('/')
+# def indexpage():
+#   return render_template("index.html")
 
 def defaultroot():
   #get the data from database - db1 and table - students

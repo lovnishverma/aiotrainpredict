@@ -1,3 +1,11 @@
+from flask import *  
+import sqlite3
+import numpy   
+import pandas  as pd 
+from  sklearn.linear_model import LinearRegression 
+from sklearn.linear_model import LogisticRegression
+
+app = Flask(__name__)
 @app.route('/rain', methods=["POST"])
 def predict_rain():
     sw = float(request.form.get("sw"))

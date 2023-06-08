@@ -1,21 +1,89 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Flask App</title>
-</head>
-<body>
-  <h1>Machine Learning:</h1>
-  <hr />
+  <head>
+    <!-- Add Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-  <table border="1">
-    <tr>
-      <td>View Live Real-time Sensor Data</td>
-      <td><a href="https://onlinenielitchandigarh.000webhostapp.com" onclick="window.open(this.href,'_blank'); return false;">Go to Live Sensor Data</a></td>
-    </tr>
-    <tr>
-      <td>Go to Rain Prediction using Logistic Regression</td>
-      <td><a href="/rainpredict">Go to Rain Prediction</a></td>
-    </tr>
-  </table>
-</body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #333;
+        margin: 20px 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      table td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      table tr:hover {
+        background-color: #e0e0e0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Rayat Group of Institutes Students AIOT Project:</h1>
+      <hr />
+
+      <table class="table table-bordered">
+        <tr>
+          <td>View Live Real-time Sensor Data</td>
+          <td>
+            <a
+              class="btn btn-primary"
+              href="https://onlinenielitchandigarh.000webhostapp.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Go to Live Sensor Data
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Go to Rain Prediction using Logistic Regression</td>
+          <td>
+            <a class="btn btn-primary" href="/rainpredict">Go to Rain Prediction</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Add Bootstrap JS (Optional) -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6g0nB1PBbB8g3O6cps+1kaCk5Sv9b9+x"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

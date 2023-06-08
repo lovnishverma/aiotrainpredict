@@ -6,10 +6,14 @@ from sklearn.linear_model import LogisticRegression
 
 app = Flask(__name__)
 @app.route('/')
-def rainpage():
+def index():
+  return render_template("index.html")
+
+@app.route('/')
+def rainredict():
   return render_template("rain.html")
 
-@app.route("/", methods=["POST"])
+@app.route("/rainpredict", methods=["POST"])
 def rainpredict():
   sw = eval ( request.form.get ( "sw") )
   sh = eval ( request.form.get ( "sh") )
@@ -24,9 +28,6 @@ def rainpredict():
   arr   = model2.predict([[sw, sh, pw]] )
   return render_template("rain.html" , data = str( arr[0] ) + " mm")
 
-@app.route('/rainpage')
-def rainpage():
-  return render_template("index.html")
 
 if __name__ == "__main__":
   app.run(debug=True)

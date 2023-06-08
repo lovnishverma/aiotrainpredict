@@ -9,7 +9,7 @@ app = Flask(__name__)
 def rainpage():
   return render_template("rain.html")
 
-@app.route("/", methods=["POST"])
+@app.route("/rainpredict", methods=["POST"])
 def rainpredict():
   sw = eval ( request.form.get ( "sw") )
   sh = eval ( request.form.get ( "sh") )

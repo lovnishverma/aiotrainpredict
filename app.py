@@ -34,7 +34,5 @@ def rainpredict():
 def live_sensor_data():
   return render_template("template.html")
 
-
-
 if __name__ == "__main__":
   app.run(debug=True)

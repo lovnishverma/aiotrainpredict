@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
+  
+  
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -136,11 +138,20 @@
           <td colspan="2" align="center">
             <input type="submit" value="Predict Rainfall" class="btn btn-primary">
             <input type="reset" value="Clear" class="btn btn-secondary">
+            <button class="btn btn-primary" onclick="location.reload()">Refresh</button>
           </td>
         </tr>
       </table>
     </form>
-    {{ data }}
+    <div id="myTable" class="table-container">
+  <table class="my-table">
+    <tr>
+      <td colspan="2" align="center">
+        {{ data }}
+      </td>
+    </tr>
+  </table>
+</div>
     <hr />
     <a href="/">Go Back to Home Page</a>
 

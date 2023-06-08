@@ -1,113 +1,306 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <!-- Add Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-<head>
-  <!-- Add Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-      margin: 30px 0;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid #333;
-      margin: 20px 0;
-    }
-
-    .container {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 30px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    .container table {
-      animation: slideInBottom 0.5s ease-in-out;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    table td {
-      padding: 10px;
-      text-align: center;
-    }
-
-    table tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-
-    table tr:hover {
-      background-color: #e0e0e0;
-    }
-
-    .btn {
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes slideInBottom {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
       }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin: 30px 0;
       }
-    }
 
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
+      hr {
+        border: none;
+        border-top: 2px solid #333;
+        margin: 20px 0;
       }
-      100% {
-        opacity: 1;
+
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        animation: fadeIn 0.5s ease-in-out;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <div class="container">
-    <h1>Rayat Group of Institutes Students AIOT Project:</h1>
-    <hr />
+      .container table {
+        animation: slideInBottom 0.5s ease-in-out;
+      }
 
-    <table class="table table-bordered">
-      <tr>
-        <td>View Live Real-time Sensor Data</td>
-        <td>
-          <a class="btn btn-primary" href="https://onlinenielitchandigarh.000webhostapp.com" target="_blank"
-            rel="noopener noreferrer">Go to Live Sensor Data</a>
-        </td>
-      </tr>
-      <tr>
-        <td>Go to Rain Prediction using Logistic Regression</td>
-        <td>
-          <a class="btn btn-primary" href="/rainpredict">Go to Rain Prediction</a>
-        </td>
-      </tr>
-    </table>
-  </div>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
 
-  <!-- Add Bootstrap JS (Optional) -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6g0nB1PBbB8g3O6cps+1kaCk5Sv9b9+x" crossorigin="anonymous"></script>
-</body>
+      table td {
+        padding: 10px;
+        text-align: center;
+      }
 
+      table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      table tr:hover {
+        background-color: #e0e0e0;
+      }
+
+      .btn {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+      }
+
+      .btn-primary:focus,
+      .btn-primary.focus {
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+      }
+
+      .btn-primary.disabled,
+      .btn-primary:disabled {
+        background-color: #007bff;
+        border-color: #007bff;
+        opacity: 0.65;
+      }
+
+      .btn-primary:not(:disabled):not(.disabled).active,
+      .btn-primary:not(:disabled):not(.disabled):active,
+      .show > .btn-primary.dropdown-toggle {
+        background-color: #0069d9;
+        border-color: #0062cc;
+      }
+
+      .btn-primary:not(:disabled):not(.disabled).active:focus,
+      .btn-primary:not(:disabled):not(.disabled):active:focus,
+      .show > .btn-primary.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+      }
+
+      .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+      }
+
+      .btn-secondary:focus,
+      .btn-secondary.focus {
+        box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+      }
+
+      .btn-secondary.disabled,
+      .btn-secondary:disabled {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        opacity: 0.65;
+      }
+
+      .btn-secondary:not(:disabled):not(.disabled).active,
+      .btn-secondary:not(:disabled):not(.disabled):active,
+      .show > .btn-secondary.dropdown-toggle {
+        background-color: #5a6268;
+        border-color: #545b62;
+      }
+
+      .btn-secondary:not(:disabled):not(.disabled).active:focus,
+      .btn-secondary:not(:disabled):not(.disabled):active:focus,
+      .show > .btn-secondary.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .btn-primary {
+        margin-right: 10px;
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+      }
+
+      .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+      }
+
+      .btn-secondary:focus,
+      .btn-secondary.focus {
+        box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+      }
+
+      .btn-secondary.disabled,
+      .btn-secondary:disabled {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        opacity: 0.65;
+      }
+
+      .btn-secondary:not(:disabled):not(.disabled).active,
+      .btn-secondary:not(:disabled):not(.disabled):active,
+      .show > .btn-secondary.dropdown-toggle {
+        background-color: #5a6268;
+        border-color: #545b62;
+      }
+
+      .btn-secondary:not(:disabled):not(.disabled).active:focus,
+      .btn-secondary:not(:disabled):not(.disabled):active:focus,
+      .show > .btn-secondary.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+      }
+
+      .btn-secondary {
+        margin-top: 10px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        border-radius: 20px;
+        padding: 10px 20px;
+      }
+
+      .btn-primary.btn-lg,
+      .btn-secondary.btn-lg {
+        padding: 15px 30px;
+        font-size: 18px;
+      }
+
+      .btn-primary.btn-block,
+      .btn-secondary.btn-block {
+        width: 100%;
+      }
+
+      .btn-primary:focus,
+      .btn-primary.focus {
+        outline: 0;
+        box-shadow: none;
+      }
+
+      .btn-secondary:focus,
+      .btn-secondary.focus {
+        outline: 0;
+        box-shadow: none;
+      }
+
+      .error {
+        color: #dc3545;
+        font-size: 14px;
+      }
+
+      .error::before {
+        content: "⚠ ";
+      }
+
+      .error-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .error-container p {
+        color: #dc3545;
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      @keyframes slideInBottom {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Rayat Group of Institutes Students AIOT Project:</h1>
+      <hr />
+
+      <table class="table table-bordered">
+        <tr>
+          <td>View Live Real-time Sensor Data</td>
+          <td>
+            <a class="btn btn-primary" href="https://onlinenielitchandigarh.000webhostapp.com" target="_blank" role="button">View Live Data</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Rain Prediction through Machine Learning</td>
+          <td>
+            <a class="btn btn-secondary" href="/rainpredict" role="button">Predict Rain</a>
+          </td>
+        </tr>
+      </table>
+
+      <div class="error-container">
+        <p id="errorMessage"></p>
+      </div>
+
+      <hr />
+      <a href="/">Go Back to Home Page</a>
+
+      <p class="copyright">
+        &copy; 2023 Rayat Group of Institutes Students. All rights reserved.
+      </p>
+    </div>
+
+    <!-- Add Bootstrap JS (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6g0nB1PBbB8g3O6cps+1kaCk5Sv9b9+x"
+      crossorigin="anonymous"></script>
+
+    <script>
+      function showErrorMessage(message) {
+        var errorMessage = document.getElementById("errorMessage");
+        errorMessage.textContent = message;
+        errorMessage.classList.add("fade-in");
+      }
+    </script>
+  </body>
 </html>

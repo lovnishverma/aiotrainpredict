@@ -14,9 +14,24 @@ def index():
 def rain_page():
     return render_template("rain.html")
 
+# Home route
 @app.route('/live_sensor_data')
-def live_sensor_data():
-    return render_template("template.html")
+def index():
+    sensor_data = get_sensor_data()
+    return render_template('template.html', sensor_data=sensor_data)
+
+# Delete route
+@app.route('/delete', methods=['GET'])
+def delete():
+    tid = request.args.get('tid')
+    delete_record(tid)
+    return "Data Successfully Deleted"
+
+# Delete all route
+@app.route('/delete-all', methods=['POST'])
+def delete_all():
+    delete_all_records()
+    return "All Entries Successfully Deleted"
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

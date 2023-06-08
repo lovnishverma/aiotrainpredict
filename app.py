@@ -3,9 +3,7 @@ import numpy
 import pandas  as pd 
 from  sklearn.linear_model import LinearRegression 
 from sklearn.linear_model import LogisticRegression
-from flask import Flask, render_template, request
-import pymysql
-from pymysql import err
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 

@@ -7,6 +7,10 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+@app.route('/sensor')
+def sensor():
+    return redirect("https://google.com")
+  
 @app.route('/')
 def index():
   return render_template("index.html")

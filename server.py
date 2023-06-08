@@ -14,9 +14,9 @@ def index():
 def rain_page():
     return render_template("rain.html")
 
-@app.route('/result')
+@app.route('/live_sensor_data')
 def live_sensor_data():
-    return render_template("result.html")
+    return render_template("template.html")
 
 if __name__ == '__main__':
     app.run()

@@ -7,31 +7,23 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
   <style>
-    .table-container {
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    * {
+      box-sizing: border-box;
     }
 
-    .my-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: center;
-    }
-
-    .my-table td {
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
-  </style>
-
-  <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f8f9fa;
+      margin: 0;
+    }
+
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
     }
 
     h1 {
@@ -126,13 +118,14 @@
   <video autoplay muted loop id="myVideo">
     <source src="https://cdn.glitch.global/6c571642-fa83-414b-8a84-6c922e08ba1b/rain.mp4" type="video/mp4">
   </video>
+
   <div class="container">
     <h1>Rainfall Prediction</h1>
     <hr />
-    
-<iframe src="https://priyankaropar.000webhostapp.com/iframe.html" style="border:1px #ffffff dotted; overflow:hidden;" name="weatherapp" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="260px" width="440px" allowfullscreen></iframe>
 
-<hr>
+    <iframe src="https://priyankaropar.000webhostapp.com/iframe.html" style="border:1px #ffffff dotted; overflow:hidden;" name="weatherapp" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="260px" width="440px" allowfullscreen></iframe>
+
+    <hr>
     <form action="{{ url_for('rainpredict') }}" method="POST" onsubmit="return validateForm()">
       <table class="table table-bordered">
         <tr>

@@ -222,8 +222,8 @@
 
       // Validate temperature input
       var temperature = parseFloat(temperatureInput.value);
-      if (isNaN(temperature) || temperature < 1 || temperature > 100) {
-        temperatureError.textContent = "Please enter a temperature between 1 and 100";
+      if (isNaN(temperature) || temperature < 0 || temperature > 60) {
+        temperatureError.textContent = "Please enter a temperature between 0°C and 60°C";
         isValid = false;
       }
 

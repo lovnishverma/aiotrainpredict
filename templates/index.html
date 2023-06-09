@@ -7,7 +7,49 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"/>
+<style>
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+</style>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -258,6 +300,8 @@
   </head>
 
   <body>
+    <video autoplay muted loop id="myVideo">
+  <source src="https://cdn.glitch.global/6c571642-fa83-414b-8a84-6c922e08ba1b/rain.mp4" type="video/mp4">
     <div class="container">
       <h1>Rayat Group of Institutes Students AIOT Project:</h1>
       <hr />
@@ -283,6 +327,12 @@
 
       <hr />
       <a href="/">Go Back to Home Page</a>
+      
+      <div class="content">
+  <h1>Developers</h1>
+  <p>Lalit and Priyanka</p>
+  <button id="myBtn" onclick="myFunction()">Pause</button>
+</div>
 
       <p class="copyright">
         &copy; 2023 Rayat Group of Institutes Students. All rights reserved.
@@ -290,6 +340,20 @@
     </div>
 
     <!-- Add Bootstrap JS (Optional) -->
+      <script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+</script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6g0nB1PBbB8g3O6cps+1kaCk5Sv9b9+x"
       crossorigin="anonymous"></script>
@@ -301,5 +365,6 @@
         errorMessage.classList.add("fade-in");
       }
     </script>
+    </video>
   </body>
 </html>

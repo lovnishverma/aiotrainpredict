@@ -6,30 +6,33 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template('index.html')
 
 @app.route('/rainpredict')
 def rainpredict():
-    return render_template("rain.html")
+    return render_template('rain.html')
 
-@app.route("/rainpredict", methods=["POST"])
-def predict_rainfall():
-    sw = int(request.form.get("sw"))
-    sh = int(request.form.get("sh"))
-    pw = float(request.form.get("pw"))
+@app.route('/rain', methods=['POST'])
+def rain():
+    if request.method == 'POST':
+        year = int(request.form['sw'])
+        month = int(request.form['sh'])
+        temperature = float(request.form['pw'])
 
-    url = "https://raw.githubusercontent.com/priyanka9-99/aiot/main/test.csv"
-    df = pd.read_csv(url)
-    X = df.iloc[:, 0:3].values
-    Y = df.iloc[:, 3].values
+        # Load the rainfall prediction model
+        url = "https://raw.githubusercontent.com/priyanka9-99/aiot/main/test.csv"
+        df = pd.read_csv(url)
+        X = df.iloc[:, 0:3]
+        Y = df.iloc[:, 3]
+        model = LogisticRegression()
+        model.fit(X, Y)
 
-    model = LogisticRegression()
-    model.fit(X, Y)
+        # Perform rainfall prediction
+        rainfall = model.predict([[year, month, temperature]])
 
-    predicted_rainfall = model.predict([[sw, sh, pw]])
+        return render_template('rain.html', year=year, month=month, temperature=temperature, rainfall=rainfall[0])
+    return render_template('rain.html')
 
-    return render_template("rain.html", year=sw, month=sh, temperature=pw, rainfall=predicted_rainfall[0])
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
     

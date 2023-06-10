@@ -1,1 +1,1 @@
-python rainpredict.py
+python app.py

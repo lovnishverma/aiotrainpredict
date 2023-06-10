@@ -126,9 +126,11 @@
             </div>
             <div class="form-group">
                 <label for="pw">Temperature in Celsius</label>
-                <input type="number" min="0" max="60" class="form-control" id="pw" name="pw" placeholder="Enter the temperature" required>
+                <input type="number" step="0.01" max="60" class="form-control" id="pw" name="pw" placeholder="Enter the temperature" required>
             </div>
             <button type="submit" class="btn btn-primary">Predict Rainfall</button>
+          <a href="/rainpredict" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Refresh</a>
+          
         </form>
       
     <br>

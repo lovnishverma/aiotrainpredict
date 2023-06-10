@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 30px 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #333;
+            margin: 20px 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        #rainfallOutput {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+  <video autoplay muted loop id="myVideo">
+    <source src="https://cdn.glitch.global/6c571642-fa83-414b-8a84-6c922e08ba1b/rain.mp4" type="video/mp4">
+  </video>
+    <div class="container">
+        <h1>Rainfall Prediction</h1>
+        <hr />
+
+    <iframe src="https://onlinenielitchandigarh.000webhostapp.com/iframe.html" style="border:1px #ffffff dotted; overflow:hidden;" name="weatherapp" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="260px" width="440px" allowfullscreen></iframe>
+
+    <hr>
+
+        <form action="/rain" method="POST">
+            <div class="form-group">
+                <label for="sw">Year:</label>
+                <select class="form-control" name="sw" id="sw">
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sh">Month:</label>
+                <select class="form-control" name="sh" id="sh">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pw">Temperature in Celsius</label>
+                <input type="number" class="form-control" id="pw" name="pw" placeholder="Enter the temperature" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict Rainfall</button>
+        </form>
+
+        {% if year and month and temperature and rainfall %}
+        <div id="rainfallOutput">
+            <h3>Rainfall Prediction:</h3>
+            <p>Year: {{ year }}</p>
+            <p>Month: {{ month }}</p>
+            <p>Temperature: {{ temperature }}</p>
+            <p>Rainfall: {{ rainfall }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Add Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUzF5IqrUndliJ0+IIb4XcvrYG8j0fOc2X8j7g5KfovbB" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var myVideo = document.getElementById("myVideo");
+            myVideo.play();
+        });
+    </script>
+</body>
+
+</html>

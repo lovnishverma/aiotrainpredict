@@ -150,7 +150,7 @@
           </td>
         </tr>
         <tr>
-          <td> Select Month:</td>
+          <td>Select Month:</td>
           <td>
             <select name="sh" id="sh">
               <option value="1">January</option>
@@ -176,30 +176,34 @@
             <span id="temperatureError" class="error"></span>
           </td>
         </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="submit" value="Predict Rainfall" class="btn btn-primary">
+            <input type="reset" value="Clear" class="btn btn-secondary"><br>
+            <button id="refreshBtn" class="btn btn-primary" onclick="refreshData()">Refresh</button>
+          </td>
+        </tr>
       </table>
-
-      <div id="rainfallOutput">
-        {% if data %}
-        Rainfall Prediction: {{ data }}
-        {% endif %}
-      </div>
-
-      <input class="btn btn-primary" type="submit" value="Predict Rainfall" id="predictBtn">
-      <input class="btn btn-secondary" type="reset" value="Reset" id="resetBtn">
-      <input class="btn btn-success" type="button" value="Refresh" id="refreshBtn" onclick="refreshPage()">
     </form>
+    <div id="myTable" class="table-container">
+      <table class="my-table">
+        <tr>
+          <td colspan="2" align="center" id="rainfallOutput" class="fade-in">
+            Rain prediction for {{ sw }} {{ get_month(sh) }} is temperature will be about {{ pw }} degrees Celsius is {{ data }} mm
+          </td>
+        </tr>
+      </table>
+    </div>
+    <hr />
+    <a href="/">Go Back to Home Page</a>
   </div>
 
-  <!-- Add jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5SMfpyxWJF1eHX6b8/abtTE1PiQ"
-    crossorigin="anonymous"></script>
+  <!-- Add Bootstrap JS (Optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy3f+7tfDjSc5vflv5K+0aYbPTqWw0G7kI8kUsy" crossorigin="anonymous"></script>
 
   <script>
-    function refreshPage() {
-      location.reload();
-    }
-
+    // Function to validate the form
     function validateForm() {
       var year = document.getElementById("sw").value;
       var month = document.getElementById("sh").value;
@@ -209,28 +213,43 @@
       var monthError = document.getElementById("monthError");
       var temperatureError = document.getElementById("temperatureError");
 
-      yearError.innerHTML = "";
-      monthError.innerHTML = "";
-      temperatureError.innerHTML = "";
+      yearError.textContent = "";
+      monthError.textContent = "";
+      temperatureError.textContent = "";
 
       if (year === "") {
-        yearError.innerHTML = "Please select a year";
+        yearError.textContent = "Please select a year";
         return false;
       }
 
       if (month === "") {
-        monthError.innerHTML = "Please select a month";
+        monthError.textContent = "Please select a month";
         return false;
       }
 
       if (temperature === "") {
-        temperatureError.innerHTML = "Please enter the temperature";
+        temperatureError.textContent = "Please enter the temperature";
         return false;
       }
 
       return true;
     }
+
+    // Function to convert month number to month name
+    function get_month(monthNumber) {
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      return monthNames[monthNumber - 1];
+    }
+
+    // Function to refresh the table data
+    function refreshData() {
+      document.getElementById("myTable").innerHTML = "";
+    }
   </script>
+
 </body>
 
 </html>

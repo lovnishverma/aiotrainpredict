@@ -126,18 +126,21 @@
             </div>
             <div class="form-group">
                 <label for="pw">Temperature in Celsius</label>
-                <input type="number" class="form-control" id="pw" name="pw" placeholder="Enter the temperature" required>
+                <input type="number" min="0" max="60" class="form-control" id="pw" name="pw" placeholder="Enter the temperature" required>
             </div>
             <button type="submit" class="btn btn-primary">Predict Rainfall</button>
         </form>
-
+      
+    <br>
+    <a href="/">Go Back to Home Page</a>
+  <br>
         {% if year and month and temperature and rainfall %}
         <div id="rainfallOutput">
             <h3>Rainfall Prediction:</h3>
             <p>Year: {{ year }}</p>
             <p>Month: {{ month }}</p>
-            <p>Temperature: {{ temperature }}</p>
-            <p>Rainfall: {{ rainfall }}</p>
+            <p>Temperature in °C: {{ temperature }}</p>
+            <p>Rainfall in mm: {{ rainfall }}</p>
         </div>
         {% endif %}
     </div>

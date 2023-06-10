@@ -123,7 +123,9 @@
     <h1>Rainfall Prediction</h1>
     <hr />
 
-    <iframe src="https://onlinenielitchandigarh.000webhostapp.com/iframe.html" style="border:1px #ffffff dotted; overflow:hidden;" name="weatherapp" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="260px" width="440px" allowfullscreen></iframe>
+    <iframe src="https://onlinenielitchandigarh.000webhostapp.com/iframe.html"
+      style="border:1px #ffffff dotted; overflow:hidden;" name="weatherapp" scrolling="no" frameborder="1"
+      marginheight="0px" marginwidth="0px" height="260px" width="440px" allowfullscreen></iframe>
 
     <hr>
     <form action="{{ url_for('rainpredict') }}" method="POST" onsubmit="return validateForm()">
@@ -174,76 +176,61 @@
             <span id="temperatureError" class="error"></span>
           </td>
         </tr>
-        <tr>
-          <td colspan="2" align="center">
-            <input type="submit" value="Predict Rainfall" class="btn btn-primary">
-            <input type="reset" value="Clear" class="btn btn-secondary"><br>
-            <button id="refreshBtn" class="btn btn-primary" onclick="refreshData()">Refresh</button>
-          </td>
-        </tr>
       </table>
+
+      <div id="rainfallOutput">
+        {% if data %}
+        Rainfall Prediction: {{ data }}
+        {% endif %}
+      </div>
+
+      <input class="btn btn-primary" type="submit" value="Predict Rainfall" id="predictBtn">
+      <input class="btn btn-secondary" type="reset" value="Reset" id="resetBtn">
+      <input class="btn btn-success" type="button" value="Refresh" id="refreshBtn" onclick="refreshPage()">
     </form>
-    <div id="myTable" class="table-container">
-      <table class="my-table">
-        <tr>
-          <td colspan="2" align="center" id="rainfallOutput" class="fade-in">
-            Rainfall can be about: {{ data }}
-          </td>
-        </tr>
-      </table>
-    </div>
-    <hr />
-    <a href="/">Go Back to Home Page</a>
   </div>
 
-  <!-- Add Bootstrap JS (Optional) -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6g0nB1PBbB8g3O6cps+1kaCk5Sv9b9+x" crossorigin="anonymous"></script>
+  <!-- Add jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5SMfpyxWJF1eHX6b8/abtTE1PiQ"
+    crossorigin="anonymous"></script>
 
   <script>
-  function validateForm() {
-    var yearInput = document.getElementById("sw");
-    var monthInput = document.getElementById("sh");
-    var temperatureInput = document.getElementById("pw");
-    var yearError = document.getElementById("yearError");
-    var monthError = document.getElementById("monthError");
-    var temperatureError = document.getElementById("temperatureError");
-
-    var isValid = true;
-
-    // Reset error messages
-    yearError.textContent = "";
-    monthError.textContent = "";
-    temperatureError.textContent = "";
-
-    // Validate year input
-    var year = parseInt(yearInput.value);
-    if (isNaN(year) || year < 2015 || year > 2025) {
-      yearError.textContent = "Please enter a valid year between 2015 and 2025";
-      isValid = false;
+    function refreshPage() {
+      location.reload();
     }
 
-    // Validate month input
-    if (monthInput.value === "") {
-      monthError.textContent = "Please enter a month";
-      isValid = false;
+    function validateForm() {
+      var year = document.getElementById("sw").value;
+      var month = document.getElementById("sh").value;
+      var temperature = document.getElementById("pw").value;
+
+      var yearError = document.getElementById("yearError");
+      var monthError = document.getElementById("monthError");
+      var temperatureError = document.getElementById("temperatureError");
+
+      yearError.innerHTML = "";
+      monthError.innerHTML = "";
+      temperatureError.innerHTML = "";
+
+      if (year === "") {
+        yearError.innerHTML = "Please select a year";
+        return false;
+      }
+
+      if (month === "") {
+        monthError.innerHTML = "Please select a month";
+        return false;
+      }
+
+      if (temperature === "") {
+        temperatureError.innerHTML = "Please enter the temperature";
+        return false;
+      }
+
+      return true;
     }
-
-    // Validate temperature input
-    var temperature = parseFloat(temperatureInput.value);
-    if (isNaN(temperature) || temperature < 0 || temperature > 60) {
-      temperatureError.textContent = "Please enter a temperature between 0°C and 60°C";
-      isValid = false;
-    }
-
-    return isValid;
-  }
-
-  function refreshData() {
-    document.getElementById("rainfallOutput").textContent = "";
-  }
-</script>
-
+  </script>
 </body>
 
 </html>

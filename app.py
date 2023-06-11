@@ -15,6 +15,7 @@ def rainpredict():
 @app.route('/rain', methods=['POST'])
 def rain():
     if request.method == 'POST':
+        # Retrieve form inputs
         year = int(request.form['sw'])
         month = int(request.form['sh'])
         temperature = float(request.form['pw'])
@@ -22,17 +23,18 @@ def rain():
         # Load the rainfall prediction model
         url = "https://raw.githubusercontent.com/priyanka9-99/aiot/main/test.csv"
         df = pd.read_csv(url)
-        X = df.iloc[:, 0:3]
-        Y = df.iloc[:, 3]
+        X = df.iloc[:, 0:3]  # Select input features (year, month, temperature)
+        Y = df.iloc[:, 3]  # Select target variable (rainfall)
         model = LogisticRegression()
         model.fit(X, Y)
 
         # Perform rainfall prediction
         rainfall = model.predict([[year, month, temperature]])
 
+        # Render the result in rain.html template
         return render_template('rain.html', year=year, month=month, temperature=temperature, rainfall=rainfall[0])
+    
     return render_template('rain.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
-    

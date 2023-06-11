@@ -28,10 +28,14 @@
         .container {
             max-width: 500px;
             margin: 0 auto;
+          
             padding: 30px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+          background-color: rgba(0, 0, 0, 0.8); /* Darker background color */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      animation: fadeIn 0.5s ease-in-out;
         }
 
         table {
@@ -75,6 +79,30 @@
             min-height: 100%;
             z-index: -1;
         }
+      .content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: #f1f1f1;
+      width: 100%;
+      padding: 20px;
+    }
+
+    #myBtn {
+      width: 200px;
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #myBtn:hover {
+      background: #ddd;
+      color: black;
+    }
     </style>
 </head>
 
@@ -142,16 +170,28 @@
         </div>
         {% endif %}
     </div>
-
+<div class="content">
+      <h1 style="text-align:center;">Developer:</h1>
+      <p style="text-align:center;">Dr. Sarwan Singh JD NIELIT Ropar</p>
+      <button  id="myBtn" onclick="myFunction()">Pause</button>
+    </div>
     <!-- Add Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUzF5IqrUndliJ0+IIb4XcvrYG8j0fOc2X8j7g5KfovbB" crossorigin="anonymous"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var myVideo = document.getElementById("myVideo");
-            myVideo.play();
-        });
-    </script>
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+
+    function myFunction() {
+      if (video.paused) {
+        video.play();
+        btn.innerHTML = "Pause";
+      } else {
+        video.pause();
+        btn.innerHTML = "Play";
+      }
+    }
+  </script>
 </body>
 
 </html>

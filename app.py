@@ -31,8 +31,8 @@ def rain():
         # Perform rainfall prediction
         rainfall = model.predict([[year, month, temperature]])
 
-        # Render the result in rain.html template
-        return render_template('rain.html', year=year, month=month, temperature=temperature, rainfall=rainfall[0])
+       # Render the result in rain.html template
+        return render_template('rain.html', year=year, month=month, temperature=temperature, rainfall=str (rainfall[0]))
     
     return render_template('rain.html')
 

@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <title>Live Sensor Data Display</title>
     <style>
+        body {
+            background-color: #f7f7f7;
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
+            border: 1px solid #dddddd;
+            padding: 15px;
             text-align: left;
         }
 
@@ -24,23 +28,25 @@
             background-color: #f2f2f2;
             font-weight: bold;
         }
-        
+
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: #333333;
         }
-        
+
         h3 {
             text-align: center;
             margin-bottom: 20px;
+            color: #666666;
         }
-        
+
         a {
             display: block;
             text-align: center;
@@ -48,32 +54,37 @@
             margin-bottom: 10px;
             width: 90%;
             max-width: 400px;
-            color: #007bff;
+            color: #ffffff;
             text-decoration: none;
-            background-color: #f2f2f2;
-            padding: 12px;
+            background-color: #007bff;
+            padding: 15px;
             border-radius: 5px;
             margin-left: auto;
             margin-right: auto;
+            transition: background-color 0.3s;
         }
-        
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
         @media (max-width: 600px) {
             table {
                 font-size: 14px;
             }
-            
+
             th, td {
-                padding: 8px;
+                padding: 10px;
             }
-            
+
             h1 {
                 font-size: 24px;
             }
-            
+
             h3 {
                 font-size: 16px;
             }
-            
+
             a {
                 width: 90%;
                 padding: 10px;
@@ -88,7 +99,7 @@
         <img src="https://cdn.glitch.global/563c9614-507d-42e7-9713-e946528f612f/nielit%20(1).png?v=1687189853963" alt="NIELIT Logo" style="display: block; margin: 0 auto; max-width: 200px;">
         <h1>Display Live Data From Sensor</h1>
         <h3>This page will automatically refresh every 5 seconds</h3>
-        <a href="/" style="margin-top:10px;margin-bottom:10px;">Go Back to Home Page</a>
+        <a href="/">Go Back to Home Page</a>
 
         <table>
             <thead>

@@ -105,7 +105,22 @@ def predict_weather():
         except:
             return render_template('home.html',error='Please enter a correct Place name...')
 
+@app.route('/livedata')
+def display_data():
+    # Specify the URL of your PHP page
+    php_url = 'https://onlinenielitchandigarh.000webhostapp.com/glitch.php'
 
+    # Make a GET request to the PHP URL
+    response = requests.get(php_url)
+
+    # Get the JSON data from the response
+    data = response.json()
+
+    # Render the template with the data
+    return render_template('live.html', data=data)
+
+#if __name__ == '__main__':
+    #app.run()
 
 if __name__ == '__main__':
     app.run(debug=True)

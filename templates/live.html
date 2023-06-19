@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Data Display</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Display</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>TID</th>
+                <th>Sensor ID</th>
+                <th>Sample Name</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Server Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    <td>{{ row.tid }}</td>
+                    <td>{{ row.sensorid }}</td>
+                    <td>{{ row.samplename }}</td>
+                    <td>{{ row.temp }} °C</td>
+                    <td>{{ row.hum }} %</td>
+                    <td>{{ row.servertimestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

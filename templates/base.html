@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+
+	<title>{% block title %}   {% endblock %}</title>
+	
+<div class="w3-container w3-teal  ">
+	<div class="logo">
+      <img src=" "
+           align="middle" style="width:100px;height:60px; position:absolute; top:1; left:0;" />
+    </div>
+
+  <center><h1>IoT Data collection Panel</h1></center>
+  
+
+</div>
+</head>
+<body>
+	
+    <nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand" >BCVS</a>
+		</div>
+		<ul class="nav navbar-nav">
+		  <li class="active"><a href="/">Home</a></li>
+		  <li><a href="/about">About</a></li>
+		 <!-- <li><a href="/s">Student</a></li>
+		  <li><a href="/c">Course</a></li> -->
+		  <li><a href="/showdata">Show Data</a></li>
+		  <li><a href="/search">Search</a></li>
+		  
+
+		</ul>
+		    <ul class="nav navbar-nav navbar-right">
+      
+      {% if session ['user'] %}
+    
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"> {{ session ['user'][0]}}  </span> &nbsp; LOG OUT</a></li>
+      {% else %}
+      <li><a href="/signin"><span class="glyphicon glyphicon-user"></span> Sign IN</a></li>
+      <li><a href="/signup"><span class="glyphicon glyphicon-log-in"></span> Sign UP</a></li>
+      {% endif %}
+    </ul>
+
+	  </div>
+	</nav>
+
+{% block content %}
+	
+{% endblock %}
+<div class="w3-container w3-teal">
+  <div class="row">
+    <div class="col-md-1">  <img src=" "  
+                                 style="width:140px;height:100px;"/> </div>
+    <div class="col-md-5">   <h4 class="text-white">  </h4> </div>
+	 	<div class="col-md-3"> <h4> Imporatant Links </h4> 
+	 	<ul>
+	 	<li> <a href="/" class="text-white" style="color:#FF0000;"> Home </a></li>
+	 	<li> <a href="/about" class="text-white" style="color:#FF0000;"> About </a></li>
+	 	<li> <a href="signin" class="text-white" style="color:#FF0000;"> Sign IN </a> &nbsp;/ &nbsp;<a href="signup" class="text-white" style="color:#FF0000;"> Sign UP </a></li>
+    <li> <a href="/t" class="text-white" style="color:#FF0000;"> Show Data </a></li>
+    <li> <a href="/search" class="text-white" style="color:#FF0000;"> Search </a></li></ul></div>
+
+
+	 	<div class="col-md-3"> <h4 class="text-white"> Contact Information </h4>
+	 	<p> <i class="icofont icofont-home text-white " > </i>  IoT Guys </p>
+	 	<p><i class="icofont icofont-phone text-white " > </i>9988776655</p>
+	 	<p><i class="icofont icofont-send-mail text-white " > </i> iot@yahoo.com  </p>  </div>
+	 	
+
+</div>
+</div>
+	<div class="row bg-green text-center text-white pt-2 pb-2">
+		<div class="col-12"> <p> 2023 IoT webserver. All Rights Reserved.</p> 
+		</div>
+	</div>
+	
+</body>
+</html>

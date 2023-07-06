@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <!-- Add Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-<style>
-body {
-  background-color: black;
-  font-family: cursive;
-}
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: black;
+        font-family: cursive;
+      }
 
-.glow {
-  font-size: 50px;
-  color: #fff;
-  text-align: center;
-  animation: glow 1s ease-in-out infinite alternate;
-}
+      .glow {
+        font-size: 50px;
+        color: #fff;
+        text-align: center;
+        animation: glow 1s ease-in-out infinite alternate;
+      }
 
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-  }
-  
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-  }
-}
-</style>
-  <style>
-    body {
+      @-webkit-keyframes glow {
+        from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+            0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073,
+            0 0 70px #e60073;
+        }
+
+        to {
+          text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+            0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6,
+            0 0 80px #ff4da6;
+        }
+      }
+    </style>
+    <style>
+      body {
         font-family: Arial, sans-serif;
         background-color: #f8f9fa;
         margin: 0;
-    }
+      }
 
-    h1 {
+      h1 {
         text-align: center;
         color: #fff;
         text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
         margin: 30px 0;
-    }
+      }
 
-    hr {
+      hr {
         border: none;
         border-top: 2px solid #fff;
         margin: 20px 0;
-    }
+      }
 
-    .container {
+      .container {
         max-width: 500px;
         margin: 0 auto;
         padding: 30px;
@@ -58,61 +65,61 @@ body {
         animation: fadeIn 0.5s ease-in-out;
         color: #fff;
         text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-    }
+      }
 
-    table {
+      table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
-    }
+      }
 
-    table td {
+      table td {
         padding: 10px;
         text-align: center;
-    }
+      }
 
-    table tr:nth-child(even) {
+      table tr:nth-child(even) {
         background-color: #f2f2f2;
-    }
+      }
 
-    table tr:hover {
+      table tr:hover {
         background-color: #e0e0e0;
-    }
+      }
 
-    .btn {
+      .btn {
         margin-top: 10px;
         width: 100%;
         color: #fff;
         text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         background-color: #000;
         border-color: #000;
-    }
+      }
 
-    .btn:hover {
+      .btn:hover {
         background-color: #ddd;
         color: #000;
         text-shadow: none;
-    }
+      }
 
-    .error {
+      .error {
         color: red;
-    }
+      }
 
-    #rainfallOutput {
+      #rainfallOutput {
         margin-top: 20px;
         font-weight: bold;
-    }
+      }
 
-    #myVideo {
+      #myVideo {
         position: fixed;
         right: 0;
         bottom: 0;
         min-width: 100%;
         min-height: 100%;
         z-index: -1;
-    }
+      }
 
-    #myBtn {
+      #myBtn {
         width: 200px;
         font-size: 18px;
         padding: 10px;
@@ -120,14 +127,14 @@ body {
         background: #000;
         color: #fff;
         cursor: pointer;
-    }
+      }
 
-    #myBtn:hover {
+      #myBtn:hover {
         background: #ddd;
         color: black;
-    }
+      }
 
-    .content {
+      .content {
         position: bottom;
         bottom: 0;
         left: 0;
@@ -135,94 +142,122 @@ body {
         color: #fff;
         width: 100%;
         padding: 20px;
-    }
-</style>
-</head>
+      }
+    </style>
+  </head>
 
-<body>
-  <video autoplay muted loop id="myVideo">
-    <source src="https://cdn.glitch.global/563c9614-507d-42e7-9713-e946528f612f/rain.mp4?v=1686998387989" type="video/mp4">
-  </video>
+  <body>
+    <video autoplay muted loop id="myVideo">
+      <source
+        src="https://cdn.glitch.global/563c9614-507d-42e7-9713-e946528f612f/rain.mp4?v=1686998387989"
+        type="video/mp4"
+      />
+    </video>
     <div class="container">
-        <h1 class="glow">Rainfall Prediction</h1>
-<iframe src="https://onlinenielitchandigarh.000webhostapp.com/iframe.html" name="weatherapp" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="200px" width="440px" allowfullscreen></iframe>
-<form action="/rain" method="POST">
-            <div class="form-group">
-                <label for="sw" style=" font-size: 24px;">Year:</label>
-                <select class="form-control" name="sw" id="sw">
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="sh" style=" font-size: 24px;">Month:</label>
-                <select class="form-control" name="sh" id="sh">
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="pw" style=" font-size: 24px;">Temperature in Celsius</label>
-                <input type="number" step="0.01" max="60" class="form-control" id="pw" name="pw" placeholder="Enter the temperature" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Predict Rainfall</button>
-          <a href="/rainpredict" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Refresh</a>
-          
-        </form>
-      
-    <br>
-    <a href="/" style=" font-size: 24px;">Go Back to Home Page</a>
-  <br>
-        {% if year and month and temperature and rainfall %}
-        <div id="rainfallOutput" style="text-align: center; font-size: 20px;">
-    <h3>Rainfall Prediction:</h3>
-    <p>Year: {{ year }}</p>
-    <p>Month: {{ month }}</p>
-    <p>Temperature: {{ temperature }}°C</p>
-    <p>Rainfall: {{ rainfall }}mm approx</p>
-</div>
+      <h1 class="glow">Rainfall Prediction</h1>
+      <iframe
+        src="https://onlinenielitchandigarh.000webhostapp.com/iframe.html"
+        name="weatherapp"
+        scrolling="no"
+        frameborder="0"
+        marginheight="0px"
+        marginwidth="0px"
+        height="200px"
+        width="440px"
+        allowfullscreen
+      ></iframe>
+      <form action="/rain" method="POST">
+        <div class="form-group">
+          <label for="sw" style="font-size: 24px">Year:</label>
+          <select class="form-control" name="sw" id="sw">
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="sh" style="font-size: 24px">Month:</label>
+          <select class="form-control" name="sh" id="sh">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="pw" style="font-size: 24px">Temperature in Celsius</label>
+          <input
+            type="number"
+            step="0.01"
+            max="60"
+            class="form-control"
+            id="pw"
+            name="pw"
+            placeholder="Enter the temperature"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Predict Rainfall</button>
+        <a
+          href="/rainpredict"
+          class="btn btn-primary"
+          style="margin-top: 10px; width: 100%"
+          >Refresh</a
+        >
+      </form>
 
-        {% endif %}
+      <br />
+      <a href="/" style="font-size: 24px">Go Back to Home Page</a>
+      <br />
+      {% if year and month and temperature and rainfall %}
+      <div id="rainfallOutput" style="text-align: center; font-size: 20px">
+        <h3>Rainfall Prediction:</h3>
+        <p>Year: {{ year }}</p>
+        <p>Month: {{ month }}</p>
+        <p>Temperature: {{ temperature }}°C</p>
+        <p>Rainfall: {{ rainfall }}mm approx</p>
+      </div>
+
+      {% endif %}
     </div>
-<div class="content">
-      <h1 style="text-align:center;">Developer:</h1>
-      <p style="text-align:center;">Dr. Sarwan Singh JD NIELIT Ropar</p>
-      <button  id="myBtn" onclick="myFunction()">Pause</button>
+    <div class="content">
+      <h1 style="text-align: center">Developer:</h1>
+      <p style="text-align: center">Dr. Sarwan Singh JD NIELIT Ropar</p>
+      <button id="myBtn" onclick="myFunction()">Pause</button>
     </div>
     <!-- Add Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUzF5IqrUndliJ0+IIb4XcvrYG8j0fOc2X8j7g5KfovbB" crossorigin="anonymous"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUzF5IqrUndliJ0+IIb4XcvrYG8j0fOc2X8j7g5KfovbB"
+      crossorigin="anonymous"
+    ></script>
     <script>
-    var video = document.getElementById("myVideo");
-    var btn = document.getElementById("myBtn");
+      var video = document.getElementById("myVideo");
+      var btn = document.getElementById("myBtn");
 
-    function myFunction() {
-      if (video.paused) {
-        video.play();
-        btn.innerHTML = "Pause";
-      } else {
-        video.pause();
-        btn.innerHTML = "Play";
+      function myFunction() {
+        if (video.paused) {
+          video.play();
+          btn.innerHTML = "Pause";
+        } else {
+          video.pause();
+          btn.innerHTML = "Play";
+        }
       }
-    }
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

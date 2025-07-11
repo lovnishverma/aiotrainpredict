@@ -1,4 +1,4 @@
-[Live Demo](https://aiotrainpredict.glitch.me/)
+[Live Demo](https://aiotrainpredict.onrender.com/)
 
 ![image](https://github.com/user-attachments/assets/2c9686d9-f5c7-48b0-8e3e-056742385e90)
 
